@@ -100,7 +100,7 @@ export default function Home() {
           />
           <h1>Life is Full of Colours</h1>
           <p>
-            The Bittersweet Lemonade Association is a registered student-led non-profit organization dedicated to bringing young people together through a shared love of music. We believe that music has the power to connect hearts, inspire kindness, and strengthen our community.
+            The Bittersweet Lemonade Association is a registered student led nonprofit organization dedicated to bringing young people together through a shared love of music. We believe that music has the power to connect hearts, inspire kindness, and strengthen our community.
           </p>
           <div className="hero-cta">
             <Link to="/blog" className="btn btn-primary">See What's New</Link>
@@ -112,7 +112,7 @@ export default function Home() {
       {/* Mission Banner */}
       <div style={{ background: 'var(--lemon)', padding: '1.5rem var(--side-padding)', textAlign: 'center' }}>
         <p style={{ margin: 0, fontWeight: 700, fontSize: '1rem', letterSpacing: '0.03em', color: 'var(--text)' }}>
-          🎵 &nbsp; Student-Led · Non-Profit · Community Driven · Since 2021 &nbsp; 🎵
+          🎵 &nbsp; Student Led · Nonprofit · Community Driven · Since 2021 &nbsp; 🎵
         </p>
       </div>
 
@@ -142,7 +142,7 @@ export default function Home() {
       <section className="section" style={{ background: 'var(--text)', color: 'var(--white)' }}>
         <div className="container">
           <p style={{ textAlign: 'center', fontWeight: 700, fontSize: '1rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--lemon)', marginBottom: '2.5rem' }}>
-            Since 2021 — We have been actively involved in performances, community events, and meaningful initiatives that reflect our passion for music and service.
+            Since 2021, we have been actively involved in performances, community events, and meaningful initiatives that reflect our passion for music and service.
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '2rem', textAlign: 'center' }}>
             {STATS.map(stat => (

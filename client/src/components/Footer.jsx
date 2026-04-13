@@ -38,7 +38,7 @@ export default function Footer() {
               style={{ height: 52, width: 'auto', marginBottom: '1.25rem' }}
             />
             <h2>Get in touch!</h2>
-            <p>Questions, membership, partnerships, or just to say hello — reach out any time.</p>
+            <p>Questions, membership, partnerships, or just to say hello. Reach out any time.</p>
             <div style={{ marginTop: '1rem' }}>
               <h4>info@bittersweet-lemonade.com</h4>
             </div>
