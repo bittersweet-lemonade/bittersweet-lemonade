@@ -1,47 +1,55 @@
 import { useEffect, useState, useCallback } from 'react';
 
-const CATEGORIES = [
-  { key: 'all', label: 'All' },
-  { key: 'performance', label: 'Performances' },
-  { key: 'band', label: 'Band' },
-  { key: 'events', label: 'Events' },
-  { key: 'behind-the-scenes', label: 'Behind the Scenes' },
+interface GalleryImage {
+  id: number;
+  src: string;
+  alt: string;
+  category: string;
+}
+
+interface Category {
+  key: string;
+  label: string;
+}
+
+const CATEGORIES: Category[] = [
+  { key: 'all',                label: 'All' },
+  { key: 'performance',        label: 'Performances' },
+  { key: 'band',               label: 'Band' },
+  { key: 'events',             label: 'Events' },
+  { key: 'behind-the-scenes',  label: 'Behind the Scenes' },
 ];
 
 export default function Gallery() {
-  const [images, setImages] = useState([]);
-  const [filtered, setFiltered] = useState([]);
-  const [category, setCategory] = useState('all');
-  const [loading, setLoading] = useState(true);
-  const [lightboxIdx, setLightboxIdx] = useState(null);
+  const [images, setImages]       = useState<GalleryImage[]>([]);
+  const [filtered, setFiltered]   = useState<GalleryImage[]>([]);
+  const [category, setCategory]   = useState('all');
+  const [loading, setLoading]     = useState(true);
+  const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
 
   useEffect(() => {
     fetch('/api/gallery')
       .then(r => r.json())
-      .then(data => { setImages(data); setFiltered(data); setLoading(false); })
+      .then((data: GalleryImage[]) => { setImages(data); setFiltered(data); setLoading(false); })
       .catch(() => setLoading(false));
   }, []);
 
   useEffect(() => {
-    if (category === 'all') {
-      setFiltered(images);
-    } else {
-      setFiltered(images.filter(img => img.category === category));
-    }
+    setFiltered(category === 'all' ? images : images.filter(img => img.category === category));
     setLightboxIdx(null);
   }, [category, images]);
 
-  const openLightbox = (idx) => setLightboxIdx(idx);
+  const openLightbox  = (idx: number) => setLightboxIdx(idx);
   const closeLightbox = () => setLightboxIdx(null);
-  const prevImage = useCallback(() => setLightboxIdx(i => (i - 1 + filtered.length) % filtered.length), [filtered.length]);
-  const nextImage = useCallback(() => setLightboxIdx(i => (i + 1) % filtered.length), [filtered.length]);
+  const prevImage = useCallback(() => setLightboxIdx(i => i === null ? null : (i - 1 + filtered.length) % filtered.length), [filtered.length]);
+  const nextImage = useCallback(() => setLightboxIdx(i => i === null ? null : (i + 1) % filtered.length), [filtered.length]);
 
   useEffect(() => {
-    const handler = (e) => {
+    const handler = (e: KeyboardEvent) => {
       if (lightboxIdx === null) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') prevImage();
-      if (e.key === 'ArrowRight') nextImage();
+      if (e.key === 'Escape')      closeLightbox();
+      if (e.key === 'ArrowLeft')   prevImage();
+      if (e.key === 'ArrowRight')  nextImage();
     };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
@@ -82,7 +90,6 @@ export default function Gallery() {
         </div>
       </section>
 
-      {/* Lightbox */}
       {lightboxIdx !== null && filtered[lightboxIdx] && (
         <div className="lightbox" onClick={closeLightbox}>
           <button className="lightbox-close" onClick={closeLightbox}>✕</button>

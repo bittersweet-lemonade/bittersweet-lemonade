@@ -1,6 +1,6 @@
-const cloudinary = require('cloudinary').v2;
-const path = require('path');
-const fs = require('fs');
+import { v2 as cloudinary } from 'cloudinary';
+import path from 'path';
+import fs from 'fs';
 
 cloudinary.config({
   cloud_name: 'dx8zth9lo',
@@ -8,28 +8,26 @@ cloudinary.config({
   api_secret: 'bK9bFQs-ykLSb8Lgw-2isrYhMcw',
 });
 
-const DATA_DIR = path.join(__dirname, '../server/data');
+const DATA_DIR    = path.join(__dirname, '../server/data');
 const UPLOADS_DIR = path.join(__dirname, '../server/uploads');
 
 const dataFiles = ['gallery.json', 'members.json', 'posts.json'];
 
-// Collect all unique /uploads/... paths from all data files
-function collectImagePaths() {
-  const paths = new Set();
+function collectImagePaths(): string[] {
+  const paths = new Set<string>();
   for (const file of dataFiles) {
     const content = JSON.parse(fs.readFileSync(path.join(DATA_DIR, file), 'utf8'));
-    JSON.stringify(content).match(/\/uploads\/[^"]+/g)?.forEach(p => paths.add(p));
+    (JSON.stringify(content).match(/\/uploads\/[^"]+/g) ?? []).forEach(p => paths.add(p));
   }
   return [...paths];
 }
 
-async function uploadImage(uploadPath) {
+async function uploadImage(uploadPath: string): Promise<string | null> {
   const localPath = path.join(UPLOADS_DIR, uploadPath.replace('/uploads/', ''));
   if (!fs.existsSync(localPath)) {
     console.warn(`  MISSING: ${localPath}`);
     return null;
   }
-  // Use the original path as the public_id so URLs stay organised
   const publicId = uploadPath.replace('/uploads/', 'bittersweet-lemonade/').replace(/\.[^.]+$/, '');
   const result = await cloudinary.uploader.upload(localPath, {
     public_id: publicId,
@@ -39,11 +37,11 @@ async function uploadImage(uploadPath) {
   return result.secure_url;
 }
 
-async function main() {
+async function main(): Promise<void> {
   const imagePaths = collectImagePaths();
   console.log(`Found ${imagePaths.length} unique images to upload.\n`);
 
-  const urlMap = {};
+  const urlMap: Record<string, string> = {};
 
   for (const imgPath of imagePaths) {
     process.stdout.write(`Uploading ${imgPath} ... `);
@@ -54,7 +52,7 @@ async function main() {
         console.log('done');
       }
     } catch (err) {
-      console.log(`FAILED: ${err.message}`);
+      console.log(`FAILED: ${(err as Error).message}`);
     }
   }
 

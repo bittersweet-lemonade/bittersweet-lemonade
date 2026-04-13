@@ -1,6 +1,6 @@
-const cloudinary = require('cloudinary').v2;
-const path = require('path');
-const fs = require('fs');
+import { v2 as cloudinary } from 'cloudinary';
+import path from 'path';
+import fs from 'fs';
 
 cloudinary.config({
   cloud_name: 'dx8zth9lo',
@@ -8,14 +8,12 @@ cloudinary.config({
   api_secret: 'bK9bFQs-ykLSb8Lgw-2isrYhMcw',
 });
 
-const UPLOADS_DIR = path.join(__dirname, '../server/uploads/2025');
-
-// Patterns that indicate a resized variant
+const UPLOADS_DIR   = path.join(__dirname, '../server/uploads/2025');
 const RESIZE_PATTERN = /-\d+x\d+\.|(-scaled)\./;
 
-function getLocalFiles() {
-  const results = [];
-  function walk(dir) {
+function getLocalFiles(): string[] {
+  const results: string[] = [];
+  function walk(dir: string): void {
     for (const entry of fs.readdirSync(dir)) {
       const full = path.join(dir, entry);
       if (fs.statSync(full).isDirectory()) {
@@ -29,31 +27,30 @@ function getLocalFiles() {
   return results;
 }
 
-async function getExistingPublicIds() {
-  const existing = new Set();
-  let nextCursor = null;
+async function getExistingPublicIds(): Promise<Set<string>> {
+  const existing = new Set<string>();
+  let nextCursor: string | null = null;
   do {
-    const opts = { type: 'upload', max_results: 500, prefix: 'bittersweet-lemonade/2025' };
+    const opts: Record<string, unknown> = { type: 'upload', max_results: 500, prefix: 'bittersweet-lemonade/2025' };
     if (nextCursor) opts.next_cursor = nextCursor;
     const res = await cloudinary.api.resources(opts);
-    for (const r of res.resources) existing.add(r.public_id);
-    nextCursor = res.next_cursor || null;
+    for (const r of res.resources) existing.add(r.public_id as string);
+    nextCursor = (res.next_cursor as string) ?? null;
   } while (nextCursor);
   return existing;
 }
 
-function toPublicId(localPath) {
-  // server/uploads/2025/07/foo.jpg → bittersweet-lemonade/2025/07/foo
+function toPublicId(localPath: string): string {
   const rel = path.relative(path.join(__dirname, '../server/uploads'), localPath);
   return 'bittersweet-lemonade/' + rel.replace(/\\/g, '/').replace(/\.[^.]+$/, '');
 }
 
-async function main() {
+async function main(): Promise<void> {
   console.log('Fetching existing Cloudinary assets...');
   const existing = await getExistingPublicIds();
   console.log(`  ${existing.size} already uploaded.\n`);
 
-  const local = getLocalFiles();
+  const local    = getLocalFiles();
   const toUpload = local.filter(f => !existing.has(toPublicId(f)));
 
   console.log(`Local originals: ${local.length}`);
@@ -64,15 +61,11 @@ async function main() {
     const publicId = toPublicId(file);
     process.stdout.write(`Uploading ${path.basename(file)} ... `);
     try {
-      await cloudinary.uploader.upload(file, {
-        public_id: publicId,
-        overwrite: false,
-        resource_type: 'auto',
-      });
+      await cloudinary.uploader.upload(file, { public_id: publicId, overwrite: false, resource_type: 'auto' });
       console.log('done');
       ok++;
     } catch (err) {
-      console.log(`FAILED: ${err.message}`);
+      console.log(`FAILED: ${(err as Error).message}`);
       fail++;
     }
   }
