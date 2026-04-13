@@ -40,7 +40,7 @@ export default function Footer() {
             <h2>Get in touch!</h2>
             <p>Questions, membership, partnerships, or just to say hello — reach out any time.</p>
             <div style={{ marginTop: '1rem' }}>
-              <h4>official.bittersweetlemonade@gmail.com</h4>
+              <h4>info@bittersweet-lemonade.com</h4>
             </div>
           </div>
 

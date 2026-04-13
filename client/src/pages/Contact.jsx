@@ -47,7 +47,7 @@ export default function Contact() {
               </p>
               <div className="contact-detail">
                 <strong>General Inquiries</strong>
-                official.bittersweetlemonade@gmail.com
+                info@bittersweet-lemonade.com
               </div>
               <div className="contact-detail" style={{ marginTop: '2rem' }}>
                 <strong>Follow Us</strong>

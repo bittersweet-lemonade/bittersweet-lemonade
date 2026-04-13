@@ -206,8 +206,8 @@ export default function Home() {
           <p style={{ color: 'var(--text-muted)', margin: '1rem auto 2rem', lineHeight: 1.8 }}>
             Whether you play an instrument, sing, dance, enjoy public speaking, help with event organization, or have other talents to share, there is a place for you here. We would love for you to join us and become part of our community.
           </p>
-          <a href="mailto:official.bittersweetlemonade@gmail.com" className="btn btn-primary">
-            official.bittersweetlemonade@gmail.com
+          <a href="mailto:info@bittersweet-lemonade.com" className="btn btn-primary">
+            info@bittersweet-lemonade.com
           </a>
         </div>
       </section>
