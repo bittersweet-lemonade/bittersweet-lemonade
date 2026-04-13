@@ -1,18 +1,4 @@
-import { useEffect, useState } from 'react';
-
 export default function About() {
-  const [members, setMembers] = useState([]);
-
-  useEffect(() => {
-    fetch('/api/members')
-      .then(r => r.json())
-      .then(setMembers)
-      .catch(() => {});
-  }, []);
-
-  const executive = members.filter(m => m.type === 'executive');
-  const advisory = members.filter(m => m.type === 'advisory');
-
   return (
     <>
       <div className="page-header">
@@ -20,7 +6,6 @@ export default function About() {
         <p>Since 2021</p>
       </div>
 
-      {/* Story */}
       <section className="section">
         <div className="container" style={{ maxWidth: 860, margin: '0 auto' }}>
           <p style={{ fontSize: '1.15rem', lineHeight: 1.9, color: 'var(--text-mid)', marginBottom: '1.5rem' }}>
@@ -37,55 +22,6 @@ export default function About() {
           </p>
         </div>
       </section>
-
-      {/* Executive Team */}
-      {executive.length > 0 && (
-        <section className="section section-gray">
-          <div className="container">
-            <div className="section-header">
-              <h2>Meet Our Team</h2>
-            </div>
-            <div className="members-grid">
-              {executive.map(member => (
-                <div key={member.id} className="member-card">
-                  <div className="member-avatar">
-                    {member.image
-                      ? <img src={member.image} alt={member.name} />
-                      : <div style={{ width: '100%', height: '100%', background: 'var(--lemon)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem', fontWeight: 900, color: 'var(--text)' }}>{member.name.charAt(0)}</div>
-                    }
-                  </div>
-                  <h3>{member.name}</h3>
-                  <div className="role">{member.role}</div>
-                  <p>{member.bio}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Advisory Board */}
-      {advisory.length > 0 && (
-        <section className="section">
-          <div className="container">
-            <div className="section-header">
-              <h2>Advisory Board</h2>
-            </div>
-            <div className="members-grid">
-              {advisory.map(member => (
-                <div key={member.id} className="member-card">
-                  <div className="member-avatar">
-                    <div style={{ width: '100%', height: '100%', background: 'var(--lemon)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem', fontWeight: 900, color: 'var(--text)' }}>{member.name.charAt(0)}</div>
-                  </div>
-                  <h3>{member.name}</h3>
-                  <div className="role">{member.role}</div>
-                  <p>{member.bio}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
     </>
   );
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const HERO_IMAGES = [
@@ -87,18 +87,6 @@ function HeroSlideshow() {
 }
 
 export default function Home() {
-  const [gallery, setGallery] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch('/api/gallery')
-      .then(r => r.json())
-      .then(data => { setGallery(data.slice(0, 6)); setLoading(false); })
-      .catch(() => setLoading(false));
-  }, []);
-
-  if (loading) return <div className="loading">Loading…</div>;
-
   return (
     <>
       {/* Hero */}
@@ -115,8 +103,8 @@ export default function Home() {
             The Bittersweet Lemonade Association is a registered student-led non-profit organization dedicated to bringing young people together through a shared love of music. We believe that music has the power to connect hearts, inspire kindness, and strengthen our community.
           </p>
           <div className="hero-cta">
-            <Link to="/gallery" className="btn btn-primary">See What's New</Link>
-            <Link to="/contact" className="btn btn-secondary">Get Involved</Link>
+            <Link to="/blog" className="btn btn-primary">See What's New</Link>
+            <Link to="/team" className="btn btn-secondary">Meet Our Team</Link>
           </div>
         </div>
       </section>
@@ -127,20 +115,6 @@ export default function Home() {
           🎵 &nbsp; Student-Led · Non-Profit · Community Driven · Since 2021 &nbsp; 🎵
         </p>
       </div>
-
-      {/* Feature Strip */}
-      {gallery.length >= 3 && (
-        <div className="feature-strip">
-          {gallery.slice(0, 3).map(img => (
-            <Link to="/gallery" key={img.id} className="feature-item">
-              <img src={img.src} alt={img.alt} loading="lazy" />
-              <div className="feature-overlay">
-                <span>View Gallery</span>
-              </div>
-            </Link>
-          ))}
-        </div>
-      )}
 
       {/* What We Do */}
       <section className="section section-gray">
@@ -176,28 +150,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Gallery Teaser */}
-      {gallery.length >= 6 && (
-        <section className="section section-dark">
-          <div className="container">
-            <div className="section-header">
-              <h2>Gallery</h2>
-              <p>Moments from our events, performances, and community programs.</p>
-            </div>
-            <div className="gallery-grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
-              {gallery.slice(0, 6).map(img => (
-                <Link to="/gallery" key={img.id} className="gallery-item">
-                  <img src={img.src} alt={img.alt} loading="lazy" />
-                </Link>
-              ))}
-            </div>
-            <div style={{ textAlign: 'center', marginTop: '2rem' }}>
-              <Link to="/gallery" className="btn btn-secondary">View All Photos</Link>
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* Join Us */}
       <section className="section section-gray">

@@ -25,10 +25,9 @@ export default function Header() {
 
         <nav className={`main-nav${menuOpen ? ' open' : ''}`} onClick={() => setMenuOpen(false)}>
           <NavLink to="/" end>Home</NavLink>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/blog">Blog</NavLink>
-          <NavLink to="/gallery">Gallery</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
+          <NavLink to="/our-story">Our Story</NavLink>
+          <NavLink to="/blog">News</NavLink>
+          <NavLink to="/team">Our Team</NavLink>
         </nav>
       </div>
     </header>
