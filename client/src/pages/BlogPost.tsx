@@ -34,7 +34,7 @@ export default function BlogPost() {
       <div className="not-found">
         <h2>Post Not Found</h2>
         <p>That post doesn't exist or has been removed.</p>
-        <Link to="/blog" className="btn btn-primary">Back to Blog</Link>
+        <Link to="/blog" className="btn-primary">Back to Blog</Link>
       </div>
     </>
   );
@@ -50,22 +50,32 @@ export default function BlogPost() {
         path={`/blog/${post.slug}`}
       />
 
-      <div className="single-post">
-        <Link to="/blog" className="back-link">← Back to Blog</Link>
-        <div className="single-post-meta">
+      <div className="max-w-[800px] mx-auto py-16 px-[4vw]">
+        <Link
+          to="/blog"
+          className="inline-flex items-center gap-2 text-[0.82rem] uppercase tracking-[0.05em] mb-8 text-lemon-dark font-bold hover:text-ink transition-colors duration-200"
+        >
+          ← Back to Blog
+        </Link>
+
+        <div className="text-[0.82rem] uppercase tracking-[0.05em] text-lemon-dark font-bold mb-4">
           {post.category} · {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
         </div>
-        <h1>{post.title}</h1>
+
+        <h1 className="text-[clamp(2rem,5vw,3.5rem)] mb-6 text-ink">{post.title}</h1>
+
         {post.featuredImage && (
-          <div className="single-post-featured">
+          <div className="aspect-[16/9] overflow-hidden mb-8 border-[1.5px] border-brand-border">
             <img
               src={post.featuredImage.replace('/upload/', '/upload/f_auto,q_auto/')}
               alt={post.title}
+              className="w-full h-full object-cover"
             />
           </div>
         )}
+
         <div
-          className="single-post-content"
+          className="text-[1.05rem] leading-[1.8] text-ink-mid [&_p]:mb-6"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
       </div>

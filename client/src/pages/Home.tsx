@@ -89,12 +89,16 @@ function HeroSlideshow() {
           }}
         />
       ))}
-      <div className="hero-overlay" />
-      <div className="hero-dots">
+      <div className="absolute inset-0 bg-ink/55 pointer-events-none" />
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-[2]">
         {HERO_IMAGES.map((_, i) => (
           <button
             key={i}
-            className={`hero-dot${i === current ? ' active' : ''}`}
+            className={`w-[10px] h-[10px] rounded-full border-2 p-0 cursor-pointer transition-all duration-200 ${
+              i === current
+                ? 'bg-lemon border-lemon'
+                : 'bg-transparent border-white/70 hover:border-white'
+            }`}
             onClick={() => goTo(i)}
             aria-label={`Slide ${i + 1}`}
           />
@@ -176,51 +180,56 @@ export default function Home() {
       />
       <SchemaOrg />
 
-      <section className="hero">
+      {/* Hero */}
+      <section className="relative min-h-[80vh] flex items-center overflow-hidden bg-ink">
         <HeroSlideshow />
-        <div className="hero-content">
+        <div className="relative z-[1] py-16 px-[4vw] max-w-[900px]">
           <img
             src={cl('https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052842/bittersweet-lemonade/2025/02/BittersweetLemonadeLogopng.png')}
             alt="Bittersweet Lemonade Association"
-            style={{ height: 90, width: 'auto', marginBottom: '1.5rem' }}
+            className="h-[90px] w-auto mb-6"
           />
-          <h1>Life is Full of Colours</h1>
-          <p>
+          <h1 className="text-lemon-bright mb-4 [text-shadow:0_2px_12px_rgba(0,0,0,0.6)]">
+            Life is Full of Colours
+          </h1>
+          <p className="text-[rgba(255,243,163,0.9)] text-[1.1rem] max-w-[600px] mb-8">
             The Bittersweet Lemonade Association is a registered student led nonprofit organization dedicated to bringing young people together through a shared love of music. We believe that music has the power to connect hearts, inspire kindness, and strengthen our community.
           </p>
-          <div className="hero-cta">
-            <Link to="/blog" className="btn btn-primary">See What's New</Link>
-            <Link to="/team" className="btn btn-secondary">Meet Our Team</Link>
+          <div className="flex gap-4 flex-wrap">
+            <Link to="/blog" className="btn-primary">See What's New</Link>
+            <Link to="/team" className="btn-secondary">Meet Our Team</Link>
           </div>
         </div>
       </section>
 
-      <div style={{ background: 'var(--lemon)', padding: '1.5rem var(--side-padding)', textAlign: 'center' }}>
-        <p style={{ margin: 0, fontWeight: 700, fontSize: '1rem', letterSpacing: '0.03em', color: 'var(--text)' }}>
+      {/* Strip */}
+      <div className="bg-lemon py-6 px-[4vw] text-center">
+        <p className="m-0 font-bold text-[1rem] tracking-[0.03em] text-ink">
           🎵 &nbsp; Student Led · Nonprofit · Community Driven · Since 2021 &nbsp; 🎵
         </p>
       </div>
 
-      <section className="section section-gray">
-        <div className="container">
-          <div className="section-header" style={{ textAlign: 'center' }}>
+      {/* What We Do */}
+      <section className="py-20 px-[4vw] bg-lemon-pale">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="section-header">
             <h2>What We Do</h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem' }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {WHAT_WE_DO.map((item, i) => (
               <Reveal key={item.title} delay={i * 80}>
-                <div style={{ background: 'var(--white)', border: '1.5px solid var(--border)', overflow: 'hidden' }}>
-                  <div style={{ width: '100%', aspectRatio: '16/9', overflow: 'hidden' }}>
+                <div className="bg-white border-[1.5px] border-brand-border overflow-hidden">
+                  <div className="w-full aspect-[16/9] overflow-hidden">
                     <img
                       src={cl(item.image)}
                       alt={item.title}
                       loading="lazy"
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                      className="w-full h-full object-cover block"
                     />
                   </div>
-                  <div style={{ padding: '1.25rem 1.5rem' }}>
-                    <h3 style={{ marginBottom: '0.5rem' }}>{item.title}</h3>
-                    <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: 0 }}>{item.desc}</p>
+                  <div className="p-5 pb-6">
+                    <h3 className="mb-2">{item.title}</h3>
+                    <p className="text-ink-muted text-[0.95rem] mb-0">{item.desc}</p>
                   </div>
                 </div>
               </Reveal>
@@ -229,19 +238,20 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section" style={{ background: 'var(--text)', color: 'var(--white)' }}>
-        <div className="container">
+      {/* Stats */}
+      <section className="py-20 px-[4vw] bg-ink">
+        <div className="max-w-[1200px] mx-auto">
           <Reveal>
-            <p style={{ textAlign: 'center', fontWeight: 700, fontSize: '1rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--lemon)', marginBottom: '2.5rem' }}>
+            <p className="text-center font-bold text-[1rem] tracking-[0.08em] uppercase text-lemon mb-10">
               Since 2021, we have been actively involved in performances, community events, and meaningful initiatives that reflect our passion for music and service.
             </p>
           </Reveal>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '2rem', textAlign: 'center' }}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {STATS.map((stat, i) => (
               <Reveal key={stat.label} delay={i * 100}>
                 <div>
-                  <div style={{ fontSize: '2.5rem', fontWeight: 900, color: 'var(--lemon)', marginBottom: '0.4rem' }}>{stat.value}</div>
-                  <div style={{ fontSize: '0.82rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'rgba(255,255,255,0.7)' }}>{stat.label}</div>
+                  <div className="text-[2.5rem] font-black text-lemon mb-[0.4rem]">{stat.value}</div>
+                  <div className="text-[0.82rem] font-bold uppercase tracking-[0.06em] text-white/70">{stat.label}</div>
                 </div>
               </Reveal>
             ))}
@@ -249,14 +259,15 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section section-gray">
-        <div className="container" style={{ textAlign: 'center', maxWidth: 700, margin: '0 auto' }}>
+      {/* Join us */}
+      <section className="py-20 px-[4vw] bg-lemon-pale">
+        <div className="max-w-[700px] mx-auto text-center">
           <Reveal>
             <h2>We Would Love to Have You Join Us</h2>
-            <p style={{ color: 'var(--text-muted)', margin: '1rem auto 2rem', lineHeight: 1.8 }}>
+            <p className="text-ink-muted mx-auto mb-8 leading-[1.8]">
               Whether you play an instrument, sing, dance, enjoy public speaking, help with event organization, or have other talents to share, there is a place for you here. We would love for you to join us and become part of our community.
             </p>
-            <Link to="/contact" className="btn btn-primary">Get in Touch</Link>
+            <Link to="/contact" className="btn-primary">Get in Touch</Link>
           </Reveal>
         </div>
       </section>

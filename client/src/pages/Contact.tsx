@@ -52,49 +52,56 @@ export default function Contact() {
         <p>Questions, partnerships, membership, or just to say hello</p>
       </div>
 
-      <section className="section">
-        <div className="container">
-          <div className="contact-grid">
-            <div className="contact-info">
-              <h3>Get in Touch</h3>
-              <p>
+      <section className="py-20 px-[4vw]">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+
+            {/* Info */}
+            <div>
+              <h3 className="mb-4">Get in Touch</h3>
+              <p className="text-ink-muted mb-8">
                 Whether you're interested in joining the association, partnering with us on an event, have a general inquiry, or just want to connect — we'd love to hear from you.
               </p>
-              <div className="contact-detail">
-                <strong>General Inquiries</strong>
-                <a href="mailto:info@bittersweet-lemonade.com">info@bittersweet-lemonade.com</a>
+              <div className="mb-4">
+                <strong className="block text-[0.78rem] uppercase tracking-[0.06em] text-lemon-dark font-bold mb-1">
+                  General Inquiries
+                </strong>
+                <a href="mailto:info@bittersweet-lemonade.com" className="text-ink-mid">
+                  info@bittersweet-lemonade.com
+                </a>
               </div>
-              <div className="contact-detail" style={{ marginTop: '2rem' }}>
-                <strong>Follow Us</strong>
-                <div style={{ marginTop: '0.5rem' }}>
-                  <a
-                    href="https://www.instagram.com/bittersweetlemonade.official/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 700, color: 'var(--lemon-dark)' }}
-                  >
-                    Instagram →
-                  </a>
-                </div>
+              <div className="mt-8">
+                <strong className="block text-[0.78rem] uppercase tracking-[0.06em] text-lemon-dark font-bold mb-2">
+                  Follow Us
+                </strong>
+                <a
+                  href="https://www.instagram.com/bittersweetlemonade.official/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[0.85rem] uppercase tracking-[0.05em] font-bold text-lemon-dark hover:text-ink transition-colors duration-200"
+                >
+                  Instagram →
+                </a>
               </div>
             </div>
 
+            {/* Form */}
             <div>
-              <h3 style={{ marginBottom: '1.5rem' }}>Send a Message</h3>
+              <h3 className="mb-6">Send a Message</h3>
 
               {status === 'success' && (
-                <div className="form-success" style={{ marginBottom: '1.5rem' }}>
+                <div className="form-success mb-6">
                   Message sent! We'll get back to you soon.
                 </div>
               )}
               {status === 'error' && (
-                <div className="form-error" style={{ marginBottom: '1.5rem' }}>
+                <div className="form-error mb-6">
                   Something went wrong. Please try again or email us directly.
                 </div>
               )}
 
-              <form className="contact-form" onSubmit={handleSubmit}>
-                <div className="form-row">
+              <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <input
                     type="text"
                     name="name"
@@ -118,9 +125,10 @@ export default function Contact() {
                   value={form.message}
                   onChange={handleChange}
                   required
+                  className="resize-y min-h-[150px]"
                 />
                 <div>
-                  <button type="submit" className="btn btn-primary" disabled={submitting}>
+                  <button type="submit" className="btn-primary" disabled={submitting}>
                     {submitting ? 'Sending…' : 'Send Message'}
                   </button>
                 </div>
