@@ -418,19 +418,47 @@ input:focus, textarea:focus { border-color: var(--lemon-dark); box-shadow: 0 0 0
 .lightbox-next { right: 1rem; }
 
 /* ── Members ─────────────────────────────────────────── */
-.members-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 2rem; }
-.member-card { text-align: center; }
-.member-avatar {
-  width: 200px; height: 200px; border-radius: 50%;
-  overflow: hidden; margin: 0 auto 1rem;
-  background: var(--lemon-mid);
-  border: 4px solid var(--lemon);
-  box-shadow: 0 4px 20px rgba(196,154,0,0.25);
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 3rem 2rem;
 }
-.member-avatar img { width: 100%; height: 100%; object-fit: cover; }
-.member-card h3 { font-size: 1.1rem; margin-bottom: 0.25rem; color: var(--text); }
+.member-card {
+  text-align: center;
+  padding: 2rem 1.5rem 2rem;
+  background: var(--white);
+  clip-path: polygon(10% 0%, 90% 0%, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0% 90%, 0% 10%);
+  box-shadow: 0 4px 24px rgba(196,154,0,0.12);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.member-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(196,154,0,0.22); }
+.hex-frame {
+  width: 200px; height: 230px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: var(--lemon);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.5rem;
+  filter: drop-shadow(0 4px 16px rgba(196,154,0,0.35));
+}
+.hex-inner {
+  width: 188px; height: 216px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  overflow: hidden;
+  background: var(--lemon-pale);
+  display: flex; align-items: center; justify-content: center;
+}
+.hex-inner img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hex-initial {
+  font-size: 3.5rem; font-weight: 900; color: var(--text);
+}
+.member-card h3 { font-size: 1.15rem; margin-bottom: 0.25rem; color: var(--text); }
 .member-card .role { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--lemon-dark); font-weight: 700; margin-bottom: 0.75rem; }
-.member-card p { font-size: 0.9rem; color: var(--text-muted); }
+.member-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+@media (max-width: 600px) {
+  .members-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 2rem 1rem; }
+  .hex-frame { width: 160px; height: 184px; }
+  .hex-inner { width: 150px; height: 172px; }
+}
 
 /* ── Contact ─────────────────────────────────────────── */
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }

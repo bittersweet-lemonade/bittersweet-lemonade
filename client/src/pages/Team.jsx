@@ -29,11 +29,13 @@ export default function Team() {
             <div className="members-grid">
               {executive.map(member => (
                 <div key={member.id} className="member-card">
-                  <div className="member-avatar">
-                    {member.image
-                      ? <img src={member.image} alt={member.name} />
-                      : <div style={{ width: '100%', height: '100%', background: 'var(--lemon)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem', fontWeight: 900, color: 'var(--text)' }}>{member.name.charAt(0)}</div>
-                    }
+                  <div className="hex-frame">
+                    <div className="hex-inner">
+                      {member.image
+                        ? <img src={member.image} alt={member.name} />
+                        : <span className="hex-initial">{member.name.charAt(0)}</span>
+                      }
+                    </div>
                   </div>
                   <h3>{member.name}</h3>
                   <div className="role">{member.role}</div>
@@ -54,8 +56,13 @@ export default function Team() {
             <div className="members-grid">
               {advisory.map(member => (
                 <div key={member.id} className="member-card">
-                  <div className="member-avatar">
-                    <div style={{ width: '100%', height: '100%', background: 'var(--lemon)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem', fontWeight: 900, color: 'var(--text)' }}>{member.name.charAt(0)}</div>
+                  <div className="hex-frame">
+                    <div className="hex-inner">
+                      {member.image
+                        ? <img src={member.image} alt={member.name} />
+                        : <span className="hex-initial">{member.name.charAt(0)}</span>
+                      }
+                    </div>
                   </div>
                   <h3>{member.name}</h3>
                   <div className="role">{member.role}</div>
