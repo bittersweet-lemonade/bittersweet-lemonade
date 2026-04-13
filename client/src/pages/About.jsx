@@ -1,14 +1,4 @@
-import { useEffect, useState } from 'react';
-
 export default function About() {
-  const [members, setMembers] = useState([]);
-
-  useEffect(() => {
-    fetch('/api/members')
-      .then(r => r.json())
-      .then(setMembers)
-      .catch(() => {});
-  }, []);
 
   return (
     <>
@@ -77,29 +67,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Executive Team */}
-      {members.length > 0 && (
-        <section className="section">
-          <div className="container">
-            <div className="section-header">
-              <h2>Executive Team</h2>
-              <p>The student leaders driving our mission forward.</p>
-            </div>
-            <div className="members-grid">
-              {members.map(member => (
-                <div key={member.id} className="member-card">
-                  <div className="member-avatar">
-                    <img src={member.image} alt={member.name} />
-                  </div>
-                  <h3>{member.name}</h3>
-                  <div className="role">{member.role}</div>
-                  <p>{member.bio}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* Photo */}
       <section className="section section-dark">
