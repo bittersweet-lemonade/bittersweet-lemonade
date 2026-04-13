@@ -1,52 +1,62 @@
 [
   {
     "id": 1,
-    "slug": "cheque-presentation",
-    "title": "Cheque Presentation Ceremony",
-    "excerpt": "Bittersweet Lemonade Association was honored to present a charitable donation to support music access in our community.",
-    "content": "<p>We are incredibly proud to share that the Bittersweet Lemonade Association recently took part in a meaningful charity cheque presentation ceremony. It is always humbling to see our members' efforts translate into real support for our community.</p><p>Music access and education should not be a privilege — it should be available to every young person. This donation moves us one step closer to that vision.</p><p>Thank you to every member, volunteer, and supporter who made this possible. Together, we are making music a force for good.</p>",
-    "date": "2025-10-15",
-    "featuredImage": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052815/bittersweet-lemonade/2025/10/Bittersweet-Lemonade-Cheque-Presentation.jpg",
-    "category": "Community"
+    "slug": "special-olympics-bc-2026",
+    "title": "Music Sharing at the Special Olympics BC Community Gathering",
+    "excerpt": "It was a great honour for us to be invited to perform at the Special Olympics BC Community Gathering — a chance to share joy, encouragement, and love through music.",
+    "content": "<p>It was a great honour for us to be invited to perform at the Special Olympics BC Community Gathering. The event this evening was about far more than music and performance. It was a chance for us to share joy, encouragement, and love.</p><p>From communicating with the organizers to attending team meetings, confirming details, rehearsing for months, and preparing, we were involved in every step of organizing. When the day finally arrived, we felt excited and deeply grateful.</p><p>Throughout the night, from classical quartet music to jazz band performances, rock music, and dance, each part of the evening contributed to the joyful, welcoming atmosphere. With music gently filling the room, a beautiful sense of joy and connection was shared by everyone present. It was a meaningful reminder of how music can bring people together, lift hearts, and create lasting moments of connection.</p><p>Being able to contribute to such a meaningful occasion through music was an experience we will never forget. We are sincerely grateful for the opportunity to be part of this special evening, and we will always treasure the memories.</p>",
+    "date": "2026-03-12",
+    "featuredImage": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052964/bittersweet-lemonade/2026/03/DSC_6347.jpg",
+    "category": "Events"
   },
   {
     "id": 2,
-    "slug": "october-2025-update",
-    "title": "October 2025 Update",
-    "excerpt": "A recap of our recent events, new members joining the association, and what's coming up next.",
-    "content": "<p>What an incredible few months it has been for the Bittersweet Lemonade Association! We've hosted workshops, attended community events, and welcomed a new wave of passionate young members into our family.</p><p>Our mission — to bring young people together through music — continues to grow stronger every day. From open mic nights to music education initiatives, our members have been working tirelessly to make a difference.</p><p>New programming is on the horizon. Stay tuned to our socials for announcements, and as always, thank you for your continued support.</p>",
-    "date": "2025-10-01",
+    "slug": "5th-summer-lawn-concert-lavenderland",
+    "title": "The 5th Summer Lawn Concert in Lavenderland",
+    "excerpt": "In 2025, we gathered at Lavenderland to share an afternoon of music and connection, raising over $4,600 for the Richmond Hospital Foundation.",
+    "content": "<p>In 2025, we gathered at Lavenderland with friends, families, and neighbours to share an afternoon of music and connection. Our annual Summer Lawn Concert filled the garden with laughter, melodies, and the gentle scent of lavender.</p><p>With everyone's generosity and support, we raised over $4,600 to help improve healthcare programs in Richmond through the Richmond Hospital Foundation.</p><p>We're truly thankful to everyone who made this day possible — from our volunteers and performers to every guest who came to listen and give. Your support reminds us that small efforts, when shared together, can grow into something meaningful for our community.</p>",
+    "date": "2025-07-16",
     "featuredImage": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052807/bittersweet-lemonade/2025/10/DSC07724.jpg",
-    "category": "Updates"
+    "category": "Events"
   },
   {
     "id": 3,
-    "slug": "summer-2025-events",
-    "title": "Summer 2025 Events Recap",
-    "excerpt": "A look back at our summer events, performances, and community outreach over the past few months.",
-    "content": "<p>Summer 2025 was one of our most active seasons yet. Our members organized and participated in events that brought together young music lovers from across the region.</p><p>From student showcases to collaborative workshops with local schools, every event reinforced why we started this organization — music connects people in ways nothing else can.</p><p>We are so grateful to everyone who volunteered, attended, or supported our events this summer. Check out the Gallery for photos from across the season!</p>",
-    "date": "2025-07-20",
-    "featuredImage": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052818/bittersweet-lemonade/2025/07/H.jpg",
+    "slug": "4th-summer-lawn-concert-west-point-grey",
+    "title": "The 4th Summer Lawn Concert in West Point Grey Community Centre",
+    "excerpt": "In 2024, our Summer Lawn Concert at West Point Grey Community Centre raised $4,400 in support of the Richmond Hospital Foundation.",
+    "content": "<p>In 2024, we continued to share our love for music and our commitment to giving back. Our Summer Lawn Concert at West Point Grey Community Centre raised $4,400 in support of the Richmond Hospital Foundation.</p><p>As a group of student volunteers, we're proud to see how this event has become a way for our community to come together — to listen, to give, and to make a difference. Each note we played carried our gratitude and hope for a healthier, more connected community.</p><p>We're thankful to everyone who supported us, through donations, applause, or simply by being there. Your encouragement keeps our music and mission alive.</p>",
+    "date": "2024-06-21",
+    "featuredImage": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052817/bittersweet-lemonade/2025/10/89E9E808-1B68-4971-BB95-EB5A650C5641.jpg",
     "category": "Events"
   },
   {
     "id": 4,
-    "slug": "october-2024-update",
-    "title": "October 2024 Update",
-    "excerpt": "Big growth and exciting new initiatives from the Bittersweet Lemonade Association.",
-    "content": "<p>October 2024 marked an exciting new chapter for our association. With a refreshed executive team and expanded membership, we hit the ground running with new energy and ambition.</p><p>We have been developing new programming, forming partnerships, and laying the groundwork for our most impactful year yet. We can't wait to share what we've been building.</p>",
-    "date": "2024-10-01",
-    "featuredImage": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052841/bittersweet-lemonade/2025/02/Bittersweet-Lemonade-Oct-2024-Update.jpg",
-    "category": "Updates"
+    "slug": "3rd-summer-lawn-concert-southland-heritage-farm",
+    "title": "The 3rd Summer Lawn Concert in Southland Heritage Farm",
+    "excerpt": "On September 1, 2023, we gathered at Southland Heritage Farm and raised $4,375 CAD for the Richmond Hospital Foundation.",
+    "content": "<p>On September 1, 2023, we gathered at Southland Heritage Farm for a joyful afternoon of music and community. This was our third annual Summer Lawn Concert, and we were joined by friends who love music and care about giving back.</p><p>By September 13, the concert had raised $4,375 CAD in support of the Richmond Hospital Foundation, helping the hospital improve facilities and better serve the community.</p><p>Every small contribution from volunteers, performers, and guests reminded us that even the tiniest acts of care can come together to create something much bigger. Together, we turned a simple afternoon into a meaningful way to share love and support within our community.</p>",
+    "date": "2023-09-01",
+    "featuredImage": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052818/bittersweet-lemonade/2025/07/H.jpg",
+    "category": "Events"
   },
   {
     "id": 5,
-    "slug": "welcome-to-our-new-site",
-    "title": "Welcome to Our New Website!",
-    "excerpt": "We're excited to launch the brand new Bittersweet Lemonade Association website.",
-    "content": "<p>Welcome to the brand new Bittersweet Lemonade Association website! We've created this space to keep our community informed, inspired, and connected.</p><p>Here you'll find our latest news, upcoming events, photo galleries from our programs, and ways to get involved. Whether you're a current member, a supporter, or someone discovering us for the first time — we're so glad you're here.</p><p>Music has the power to connect hearts, inspire kindness, and strengthen our community. That belief is at the core of everything we do. Thank you for being part of our journey.</p>",
-    "date": "2025-02-01",
-    "featuredImage": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052842/bittersweet-lemonade/2025/02/BittersweetLemonadeLogopng.png",
-    "category": "Updates"
+    "slug": "2nd-summer-lawn-concert-richmond-city-square",
+    "title": "The 2nd Summer Lawn Concert in Richmond City Square",
+    "excerpt": "In summer 2022, partnering with Firefly Youth Network, we raised $7,500 CAD for the Richmond Hospital Foundation's Life in Three Campaign.",
+    "content": "<p>In the summer of 2022, our group, Bittersweet Lemonade Association, joined forces with Firefly Youth Network to host a joyful and meaningful summer concert. With support from local businesses and community members, we raised $7,500 CAD for the Richmond Hospital Foundation's \"Life in Three\" Campaign.</p><p>The funds helped purchase a range of urgently needed diagnostic equipment for the hospital's heart, lung, and neurology specialists, enabling them to provide faster, more accurate care to patients.</p><p>By organizing this event, we gained valuable insights into teamwork, community service, and the impact that young people can have when united for a common cause. Knowing that our efforts strengthened local healthcare made everyone involved proud and motivated to continue making a difference.</p>",
+    "date": "2022-08-27",
+    "featuredImage": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052824/bittersweet-lemonade/2025/07/IMG_8586.jpg",
+    "category": "Events"
+  },
+  {
+    "id": 6,
+    "slug": "1st-summer-lawn-concert-southland-heritage-farm",
+    "title": "The 1st Summer Lawn Concert in Southland Heritage Farm",
+    "excerpt": "In 2021, we held our very first Summer Lawn Concert, raising $951.38 CAD for the Indian Residential School Survivors Society.",
+    "content": "<p>In 2021, we held our very first Summer Lawn Concert at Southland Heritage Farm, bringing together friends and volunteers to share music and community spirit.</p><p>With everyone's support, we raised $951.38 CAD for the Indian Residential School Survivors Society, contributing to their important work supporting survivors and raising awareness.</p><p>This first concert taught us a lot about teamwork, organizing events, and the impact that even a small group of dedicated young people can have. It was a meaningful start to our journey, showing us the power of music to bring people together and make a difference.</p>",
+    "date": "2021-08-01",
+    "featuredImage": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052841/bittersweet-lemonade/2025/02/Bittersweet-Lemonade-Oct-2024-Update.jpg",
+    "category": "Events"
   }
 ]

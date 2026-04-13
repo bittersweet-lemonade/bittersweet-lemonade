@@ -47,15 +47,7 @@ export default function Contact() {
               </p>
               <div className="contact-detail">
                 <strong>General Inquiries</strong>
-                info@bittersweetlemonade.com
-              </div>
-              <div className="contact-detail">
-                <strong>Membership</strong>
-                membership@bittersweetlemonade.com
-              </div>
-              <div className="contact-detail">
-                <strong>Partnerships & Events</strong>
-                partnerships@bittersweetlemonade.com
+                official.bittersweetlemonade@gmail.com
               </div>
               <div className="contact-detail" style={{ marginTop: '2rem' }}>
                 <strong>Follow Us</strong>

@@ -1,16 +1,106 @@
 [
   {
     "id": 1,
-    "name": "Bella Li",
+    "name": "Harold Wang",
     "role": "President",
-    "image": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052822/bittersweet-lemonade/2025/07/bella-li.jpg",
-    "bio": "Bella founded the association with a vision to make music a uniting force for young people everywhere."
+    "image": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052823/bittersweet-lemonade/2025/07/harold-wang.jpg",
+    "bio": "Harold Wang is a junior at West Point Grey Academy who is excited to make music fun, accessible, and inclusive not only in our community but also around the world. When not practicing piano, cello, or singing, he can be found hitting golf balls into the water.",
+    "type": "executive"
   },
   {
     "id": 2,
-    "name": "Harold Wang",
+    "name": "Oscar Liu",
     "role": "Vice President",
-    "image": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052823/bittersweet-lemonade/2025/07/harold-wang.jpg",
-    "bio": "Harold leads our community outreach programs and oversees partnerships with local schools and organizations."
+    "image": null,
+    "bio": "A senior at St. George's School, Oscar is excited to extend his umbrella of musical passion to everyone around him. Playing a variety of saxophones and a diverse set of other instruments, he enjoys music as a creative outlet of expression and purpose. Outside of music, Oscar can be found in the lab mixing together dangerous chemicals, rowing, or taking long walks on the beach.",
+    "type": "executive"
+  },
+  {
+    "id": 3,
+    "name": "Ethan Ho",
+    "role": "Vice President",
+    "image": null,
+    "bio": "Ethan Ho is a senior at West Point Grey Academy who is excited to help spread his love for music with the community. In his free time, he enjoys playing the flute.",
+    "type": "executive"
+  },
+  {
+    "id": 4,
+    "name": "Belle Song",
+    "role": "Director of Fundraising",
+    "image": null,
+    "bio": "A rising junior at West Point Grey Academy, Belle is eager to bring joy and share her love for the arts with those around her. She wishes to enrich her community with arts from various cultures. Alongside being an avid member of her school's theatrical production, she spends her free time singing, participating in the choir, and competing in equestrian sports.",
+    "type": "executive"
+  },
+  {
+    "id": 5,
+    "name": "Charles Wang",
+    "role": "Director of Communications",
+    "image": null,
+    "bio": "Charles is a passionate music enthusiast and a dedicated violinist. A junior at West Point Grey Academy, he is committed to enriching his community with music from various cultures and genres. In his free time, he plays the violin and participates in math competitions.",
+    "type": "executive"
+  },
+  {
+    "id": 6,
+    "name": "Bella Li",
+    "role": "Director of Marketing",
+    "image": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052822/bittersweet-lemonade/2025/07/bella-li.jpg",
+    "bio": "Bella Li is a sophomore at West Point Grey Academy who is passionate about making music inclusive and enjoyable for everyone. She loves playing the cello and exploring different ways to bring people together through music. Her goal is to inspire others to appreciate and participate in the world of music.",
+    "type": "executive"
+  },
+  {
+    "id": 7,
+    "name": "Elizabeth Feng",
+    "role": "Director of Volunteers",
+    "image": null,
+    "bio": "Elizabeth Feng, a sophomore at Crofton House School, has loved music since she was young. She plays the piano, flute, and also the violin. When not tinkering with music or reading books, she can be found shanking tennis balls into a temple.",
+    "type": "executive"
+  },
+  {
+    "id": 8,
+    "name": "Felix Bian",
+    "role": "Director of Volunteers",
+    "image": null,
+    "bio": "Felix Bian is a sophomore at West Point Grey Academy dedicated to music and the arts. He plays the piano and clarinet, as well as doing multiple Chinese cultural performances. In his free time, he likes doing math and playing sports.",
+    "type": "executive"
+  },
+  {
+    "id": 9,
+    "name": "James Wang",
+    "role": "Event Coordinator",
+    "image": null,
+    "bio": "James, a junior at West Point Grey Academy, is passionate about bringing people together over music. In addition to being a piano and trumpet player, James enjoys playing golf, tennis, and watching the Canucks lose.",
+    "type": "executive"
+  },
+  {
+    "id": 10,
+    "name": "Tara Li",
+    "role": "Advisor",
+    "image": null,
+    "bio": "Tara Li is a second-year university student with a heartfelt passion for charitable work. Through art, calligraphy, drama, singing, and guitar, she strives to uplift those around her and spread joy to the community through her unique artistic voice.",
+    "type": "advisory"
+  },
+  {
+    "id": 11,
+    "name": "Justin Li",
+    "role": "Advisor",
+    "image": null,
+    "bio": "Justin Li is a second-year university student and a founding member of Bittersweet Lemonade. With a passion for music, Justin continues his pursuit of expression through music in addition to his academics while at university.",
+    "type": "advisory"
+  },
+  {
+    "id": 12,
+    "name": "Anya Li",
+    "role": "Advisor",
+    "image": null,
+    "bio": "Anya Li is a first-year university student passionate about fostering community and unity through the fine arts. As an ice skating coach, Anya combines her love for artistic expression through mentorship. Whether on ice or in creative spaces, she strives to bring people together through shared experiences.",
+    "type": "advisory"
+  },
+  {
+    "id": 13,
+    "name": "Tony Zhang",
+    "role": "Advisor",
+    "image": null,
+    "bio": "Tony Zhang is a third-year university student with a keen interest in finance and a deep passion for giving back to his community. Through his analytical expertise, investment insights, and collaborative leadership, he strives to utilize his business acumen to uplift those around him and create meaningful impact.",
+    "type": "advisory"
   }
 ]
