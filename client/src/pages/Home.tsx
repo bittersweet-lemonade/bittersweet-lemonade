@@ -1,9 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import Meta from '../components/Meta';
 
-// Insert Cloudinary auto-format + auto-quality transforms
-const cl = url => url.replace('/upload/', '/upload/f_auto,q_auto/');
+const cl = (url: string) => url.replace('/upload/', '/upload/f_auto,q_auto/');
 
 const HERO_IMAGES = [
   'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052836/bittersweet-lemonade/2026/03/DSC_6354.jpg',
@@ -18,14 +17,17 @@ const HERO_IMAGES = [
   'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052832/bittersweet-lemonade/2026/03/DSC_6352.jpg',
 ];
 
-const STATS = [
+interface Stat { value: string; label: string; }
+interface WhatWeDo { image: string; title: string; desc: string; }
+
+const STATS: Stat[] = [
   { value: '$22,000+', label: 'Funds Raised & Donated' },
   { value: '40+',      label: 'Volunteer Members' },
   { value: '20+',      label: 'Sponsorships' },
   { value: '300+',     label: 'Attendees' },
 ];
 
-const WHAT_WE_DO = [
+const WHAT_WE_DO: WhatWeDo[] = [
   {
     image: 'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052807/bittersweet-lemonade/2025/10/DSC07724.jpg',
     title: 'Annual Charity Concert',
@@ -48,18 +50,10 @@ const WHAT_WE_DO = [
   },
 ];
 
-// Lazy-loaded hero slideshow — only loads images as they become active
 function HeroSlideshow() {
   const [current, setCurrent] = useState(0);
-  const [loaded, setLoaded] = useState(new Set([0]));
-  const timer = useRef(null);
-
-  const goTo = (idx) => {
-    clearInterval(timer.current);
-    setCurrent(idx);
-    setLoaded(s => new Set([...s, idx]));
-    startTimer();
-  };
+  const [loaded, setLoaded] = useState<Set<number>>(new Set([0]));
+  const timer = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const startTimer = () => {
     timer.current = setInterval(() => {
@@ -71,9 +65,16 @@ function HeroSlideshow() {
     }, 4000);
   };
 
+  const goTo = (idx: number) => {
+    if (timer.current) clearInterval(timer.current);
+    setCurrent(idx);
+    setLoaded(s => new Set([...s, idx]));
+    startTimer();
+  };
+
   useEffect(() => {
     startTimer();
-    return () => clearInterval(timer.current);
+    return () => { if (timer.current) clearInterval(timer.current); };
   }, []);
 
   return (
@@ -103,10 +104,16 @@ function HeroSlideshow() {
   );
 }
 
-// Reveal-on-scroll wrapper
-function Reveal({ children, delay = 0, className = '' }) {
-  const ref = useRef(null);
+interface RevealProps {
+  children: ReactNode;
+  delay?: number;
+  className?: string;
+}
+
+function Reveal({ children, delay = 0, className = '' }: RevealProps) {
+  const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -117,6 +124,7 @@ function Reveal({ children, delay = 0, className = '' }) {
     obs.observe(el);
     return () => obs.disconnect();
   }, []);
+
   return (
     <div
       ref={ref}
@@ -128,7 +136,6 @@ function Reveal({ children, delay = 0, className = '' }) {
   );
 }
 
-// Schema.org JSON-LD for Organization
 function SchemaOrg() {
   useEffect(() => {
     const script = document.createElement('script');
@@ -153,13 +160,9 @@ function SchemaOrg() {
       email: 'info@bittersweet-lemonade.com',
       knowsAbout: ['Music', 'Charity', 'Youth Programs', 'Community Events', 'Concerts'],
     });
-    const existing = document.getElementById('schema-org-org');
-    if (existing) existing.remove();
+    document.getElementById('schema-org-org')?.remove();
     document.head.appendChild(script);
-    return () => {
-      const s = document.getElementById('schema-org-org');
-      if (s) s.remove();
-    };
+    return () => { document.getElementById('schema-org-org')?.remove(); };
   }, []);
   return null;
 }
@@ -173,7 +176,6 @@ export default function Home() {
       />
       <SchemaOrg />
 
-      {/* Hero */}
       <section className="hero">
         <HeroSlideshow />
         <div className="hero-content">
@@ -193,14 +195,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Mission Banner */}
       <div style={{ background: 'var(--lemon)', padding: '1.5rem var(--side-padding)', textAlign: 'center' }}>
         <p style={{ margin: 0, fontWeight: 700, fontSize: '1rem', letterSpacing: '0.03em', color: 'var(--text)' }}>
           🎵 &nbsp; Student Led · Nonprofit · Community Driven · Since 2021 &nbsp; 🎵
         </p>
       </div>
 
-      {/* What We Do */}
       <section className="section section-gray">
         <div className="container">
           <div className="section-header" style={{ textAlign: 'center' }}>
@@ -229,7 +229,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats */}
       <section className="section" style={{ background: 'var(--text)', color: 'var(--white)' }}>
         <div className="container">
           <Reveal>
@@ -250,7 +249,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Join Us */}
       <section className="section section-gray">
         <div className="container" style={{ textAlign: 'center', maxWidth: 700, margin: '0 auto' }}>
           <Reveal>
@@ -258,9 +256,7 @@ export default function Home() {
             <p style={{ color: 'var(--text-muted)', margin: '1rem auto 2rem', lineHeight: 1.8 }}>
               Whether you play an instrument, sing, dance, enjoy public speaking, help with event organization, or have other talents to share, there is a place for you here. We would love for you to join us and become part of our community.
             </p>
-            <Link to="/contact" className="btn btn-primary">
-              Get in Touch
-            </Link>
+            <Link to="/contact" className="btn btn-primary">Get in Touch</Link>
           </Reveal>
         </div>
       </section>

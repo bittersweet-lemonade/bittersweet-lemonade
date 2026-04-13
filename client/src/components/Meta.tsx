@@ -7,12 +7,19 @@ const DEFAULT_DESC =
 const DEFAULT_IMAGE =
   'https://res.cloudinary.com/dx8zth9lo/image/upload/f_auto,q_auto/v1776052842/bittersweet-lemonade/2025/02/BittersweetLemonadeLogopng.png';
 
-export default function Meta({ title, description, image, path = '/' }) {
+interface MetaProps {
+  title?: string;
+  description?: string;
+  image?: string;
+  path?: string;
+}
+
+export default function Meta({ title, description, image, path = '/' }: MetaProps) {
   const fullTitle = title
     ? `${title} | ${SITE}`
     : `${SITE} — Student-Led Nonprofit Music Association`;
-  const desc = description || DEFAULT_DESC;
-  const img = image || DEFAULT_IMAGE;
+  const desc = description ?? DEFAULT_DESC;
+  const img = image ?? DEFAULT_IMAGE;
   const url = `${SITE_URL}${path}`;
 
   useEffect(() => {
@@ -33,8 +40,8 @@ export default function Meta({ title, description, image, path = '/' }) {
   return null;
 }
 
-function set(attr, name, content) {
-  let el = document.querySelector(`meta[${attr}="${name}"]`);
+function set(attr: string, name: string, content: string) {
+  let el = document.querySelector<HTMLMetaElement>(`meta[${attr}="${name}"]`);
   if (!el) {
     el = document.createElement('meta');
     el.setAttribute(attr, name);

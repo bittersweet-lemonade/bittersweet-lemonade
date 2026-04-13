@@ -1,14 +1,22 @@
-import { useState } from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
 import Meta from '../components/Meta';
 
+interface FormState {
+  name: string;
+  email: string;
+  message: string;
+}
+
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [status, setStatus] = useState(null);
+  const [form, setForm] = useState<FormState>({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState<'success' | 'error' | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
-  const handleChange = (e) => setForm(f => ({ ...f, [e.target.name]: e.target.value }));
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm(f => ({ ...f, [e.target.name]: e.target.value }));
+  };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitting(true);
     setStatus(null);
@@ -18,7 +26,7 @@ export default function Contact() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
-      const data = await res.json();
+      const data = await res.json() as { success?: boolean };
       if (res.ok && data.success) {
         setStatus('success');
         setForm({ name: '', email: '', message: '' });

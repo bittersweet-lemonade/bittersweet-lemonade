@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Meta from '../components/Meta';
+import { Post } from '../types';
 
 function SkeletonCard() {
   return (
@@ -17,13 +18,13 @@ function SkeletonCard() {
 }
 
 export default function Blog() {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch('/api/posts')
       .then(r => r.json())
-      .then(data => { setPosts(data); setLoading(false); })
+      .then((data: Post[]) => { setPosts(data); setLoading(false); })
       .catch(() => setLoading(false));
   }, []);
 

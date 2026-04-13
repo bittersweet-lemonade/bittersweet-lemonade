@@ -5,12 +5,10 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Close drawer on route change
   useEffect(() => {
     setMenuOpen(false);
   }, [location]);
 
-  // Prevent body scroll when drawer is open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
@@ -36,7 +34,6 @@ export default function Header() {
           {menuOpen ? '✕' : '☰'}
         </button>
 
-        {/* Desktop nav */}
         <nav className="main-nav desktop-nav">
           <NavLink to="/" end>Home</NavLink>
           <NavLink to="/our-story">Our Story</NavLink>
@@ -45,12 +42,10 @@ export default function Header() {
           <NavLink to="/contact">Contact</NavLink>
         </nav>
 
-        {/* Mobile drawer backdrop */}
         {menuOpen && (
           <div className="nav-backdrop" onClick={() => setMenuOpen(false)} />
         )}
 
-        {/* Mobile drawer */}
         <nav className={`mobile-nav${menuOpen ? ' open' : ''}`} aria-hidden={!menuOpen}>
           <NavLink to="/" end>Home</NavLink>
           <NavLink to="/our-story">Our Story</NavLink>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Post } from '../types';
 
 const InstagramIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
@@ -8,12 +9,12 @@ const InstagramIcon = () => (
 );
 
 export default function Footer() {
-  const [recentPosts, setRecentPosts] = useState([]);
+  const [recentPosts, setRecentPosts] = useState<Post[]>([]);
 
   useEffect(() => {
     fetch('/api/posts')
       .then(r => r.json())
-      .then(data => setRecentPosts(data.slice(0, 5)))
+      .then((data: Post[]) => setRecentPosts(data.slice(0, 5)))
       .catch(() => {});
   }, []);
 
@@ -21,7 +22,6 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="container">
         <div className="footer-grid">
-          {/* Column 1: Get in Touch */}
           <div className="footer-section">
             <img
               src="https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052842/bittersweet-lemonade/2025/02/BittersweetLemonadeLogopng.png"
@@ -35,7 +35,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Posts */}
           <div className="footer-section">
             <h2>Posts</h2>
             <div className="footer-posts">
@@ -50,11 +49,12 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 3: Socials */}
           <div className="footer-section">
             <h2>Socials</h2>
             <div className="footer-socials">
-              <a href="https://www.instagram.com/bittersweetlemonade.official/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><InstagramIcon /> @bittersweetlemonade.official</a>
+              <a href="https://www.instagram.com/bittersweetlemonade.official/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                <InstagramIcon /> @bittersweetlemonade.official
+              </a>
             </div>
           </div>
         </div>

@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Meta from '../components/Meta';
+import { Post } from '../types';
 
 export default function BlogPost() {
-  const { slug } = useParams();
-  const [post, setPost] = useState(null);
+  const { slug } = useParams<{ slug: string }>();
+  const [post, setPost] = useState<Post | null>(null);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
 
@@ -14,7 +15,7 @@ export default function BlogPost() {
     fetch(`/api/posts/${slug}`)
       .then(r => {
         if (!r.ok) { setNotFound(true); return null; }
-        return r.json();
+        return r.json() as Promise<Post>;
       })
       .then(data => { if (data) setPost(data); setLoading(false); })
       .catch(() => { setLoading(false); setNotFound(true); });
@@ -45,7 +46,7 @@ export default function BlogPost() {
       <Meta
         title={post.title}
         description={post.excerpt}
-        image={post.featuredImage}
+        image={post.featuredImage ?? undefined}
         path={`/blog/${post.slug}`}
       />
 

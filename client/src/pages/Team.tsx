@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Meta from '../components/Meta';
+import { Member } from '../types';
 
 function SkeletonMember() {
   return (
@@ -12,14 +13,35 @@ function SkeletonMember() {
   );
 }
 
+function MemberCard({ member }: { member: Member }) {
+  return (
+    <div className="member-card">
+      <div className="hex-frame">
+        <div className="hex-inner">
+          {member.image
+            ? <img
+                src={member.image.replace('/upload/', '/upload/f_auto,q_auto/')}
+                alt={member.name}
+              />
+            : <span className="hex-initial">{member.name.charAt(0)}</span>
+          }
+        </div>
+      </div>
+      <h3>{member.name}</h3>
+      <div className="role">{member.role}</div>
+      <p>{member.bio}</p>
+    </div>
+  );
+}
+
 export default function Team() {
-  const [members, setMembers] = useState([]);
+  const [members, setMembers] = useState<Member[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch('/api/members')
       .then(r => r.json())
-      .then(data => { setMembers(data); setLoading(false); })
+      .then((data: Member[]) => { setMembers(data); setLoading(false); })
       .catch(() => setLoading(false));
   }, []);
 
@@ -47,24 +69,7 @@ export default function Team() {
           <div className="members-grid">
             {loading
               ? [1, 2, 3, 4, 5, 6].map(i => <SkeletonMember key={i} />)
-              : executive.map(member => (
-                  <div key={member.id} className="member-card">
-                    <div className="hex-frame">
-                      <div className="hex-inner">
-                        {member.image
-                          ? <img
-                              src={member.image.replace('/upload/', '/upload/f_auto,q_auto/')}
-                              alt={member.name}
-                            />
-                          : <span className="hex-initial">{member.name.charAt(0)}</span>
-                        }
-                      </div>
-                    </div>
-                    <h3>{member.name}</h3>
-                    <div className="role">{member.role}</div>
-                    <p>{member.bio}</p>
-                  </div>
-                ))
+              : executive.map(m => <MemberCard key={m.id} member={m} />)
             }
           </div>
         </div>
@@ -79,24 +84,7 @@ export default function Team() {
             <div className="members-grid">
               {loading
                 ? [1, 2, 3, 4].map(i => <SkeletonMember key={i} />)
-                : advisory.map(member => (
-                    <div key={member.id} className="member-card">
-                      <div className="hex-frame">
-                        <div className="hex-inner">
-                          {member.image
-                            ? <img
-                                src={member.image.replace('/upload/', '/upload/f_auto,q_auto/')}
-                                alt={member.name}
-                              />
-                            : <span className="hex-initial">{member.name.charAt(0)}</span>
-                          }
-                        </div>
-                      </div>
-                      <h3>{member.name}</h3>
-                      <div className="role">{member.role}</div>
-                      <p>{member.bio}</p>
-                    </div>
-                  ))
+                : advisory.map(m => <MemberCard key={m.id} member={m} />)
               }
             </div>
           </div>
