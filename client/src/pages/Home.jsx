@@ -60,20 +60,13 @@ function HeroSlideshow() {
 }
 
 export default function Home() {
-  const [posts, setPosts] = useState([]);
   const [gallery, setGallery] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    Promise.all([
-      fetch('/api/posts').then(r => r.json()),
-      fetch('/api/gallery').then(r => r.json()),
-    ])
-      .then(([postsData, galleryData]) => {
-        setPosts(postsData.slice(0, 3));
-        setGallery(galleryData.slice(0, 6));
-        setLoading(false);
-      })
+    fetch('/api/gallery')
+      .then(r => r.json())
+      .then(data => { setGallery(data.slice(0, 6)); setLoading(false); })
       .catch(() => setLoading(false));
   }, []);
 
@@ -147,37 +140,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Latest News */}
-      <section className="section">
-        <div className="container">
-          <div className="section-header">
-            <h2>Latest News</h2>
-            <p>Stay up to date with everything happening at the Bittersweet Lemonade Association.</p>
-          </div>
-
-          <div className="posts-grid">
-            {posts.map(post => (
-              <article key={post.id} className="post-card">
-                {post.featuredImage && (
-                  <div className="post-card-image">
-                    <img src={post.featuredImage} alt={post.title} loading="lazy" />
-                  </div>
-                )}
-                <div className="post-card-body">
-                  <div className="post-card-meta">{post.category} · {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
-                  <h3>{post.title}</h3>
-                  <p>{post.excerpt}</p>
-                  <Link to={`/blog/${post.slug}`} className="post-card-link">Read More →</Link>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-            <Link to="/blog" className="btn btn-primary">All Posts</Link>
-          </div>
-        </div>
-      </section>
 
       {/* Gallery Teaser */}
       {gallery.length >= 6 && (
