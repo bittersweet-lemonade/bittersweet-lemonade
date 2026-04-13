@@ -19,7 +19,7 @@
     "id": 3,
     "name": "Ethan Ho",
     "role": "Vice President",
-    "image": null,
+    "image": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776061797/bittersweet-lemonade/2025/07/2820b86a4e9d99bb3369da1c30935892.jpg",
     "bio": "Ethan Ho is a senior at West Point Grey Academy who is excited to help spread his love for music with the community. In his free time, he enjoys playing the flute.",
     "type": "executive"
   },
@@ -27,7 +27,7 @@
     "id": 4,
     "name": "Belle Song",
     "role": "Director of Fundraising",
-    "image": null,
+    "image": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776061811/bittersweet-lemonade/2025/07/large_user_3518909_126.jpg",
     "bio": "A rising junior at West Point Grey Academy, Belle is eager to bring joy and share her love for the arts with those around her. She wishes to enrich her community with arts from various cultures. Alongside being an avid member of her school's theatrical production, she spends her free time singing, participating in the choir, and competing in equestrian sports.",
     "type": "executive"
   },
@@ -35,7 +35,7 @@
     "id": 5,
     "name": "Charles Wang",
     "role": "Director of Communications",
-    "image": null,
+    "image": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776061812/bittersweet-lemonade/2025/07/large_user_3532843_79.jpg",
     "bio": "Charles is a passionate music enthusiast and a dedicated violinist. A junior at West Point Grey Academy, he is committed to enriching his community with music from various cultures and genres. In his free time, he plays the violin and participates in math competitions.",
     "type": "executive"
   },
@@ -51,7 +51,7 @@
     "id": 7,
     "name": "Elizabeth Feng",
     "role": "Director of Volunteers",
-    "image": null,
+    "image": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776061806/bittersweet-lemonade/2025/07/a9ef0a240b635546fb8fa215456e7063.jpg",
     "bio": "Elizabeth Feng, a sophomore at Crofton House School, has loved music since she was young. She plays the piano, flute, and also the violin. When not tinkering with music or reading books, she can be found shanking tennis balls into a temple.",
     "type": "executive"
   },
@@ -59,7 +59,7 @@
     "id": 8,
     "name": "Felix Bian",
     "role": "Director of Volunteers",
-    "image": null,
+    "image": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776061799/bittersweet-lemonade/2025/07/512197216_4137464666497126_6753936913642937167_n.jpg",
     "bio": "Felix Bian is a sophomore at West Point Grey Academy dedicated to music and the arts. He plays the piano and clarinet, as well as doing multiple Chinese cultural performances. In his free time, he likes doing math and playing sports.",
     "type": "executive"
   },
@@ -91,7 +91,7 @@
     "id": 12,
     "name": "Anya Li",
     "role": "Advisor",
-    "image": null,
+    "image": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776061795/bittersweet-lemonade/2025/07/154db1c01cfb98dc607546b5bff77adc.jpg",
     "bio": "Anya Li is a first-year university student passionate about fostering community and unity through the fine arts. As an ice skating coach, Anya combines her love for artistic expression through mentorship. Whether on ice or in creative spaces, she strives to bring people together through shared experiences.",
     "type": "advisory"
   },
