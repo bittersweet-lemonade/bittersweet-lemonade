@@ -20,24 +20,24 @@ const STATS = [
 
 const WHAT_WE_DO = [
   {
-    icon: '🎵',
+    image: 'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052807/bittersweet-lemonade/2025/10/DSC07724.jpg',
     title: 'Annual Charity Concert',
-    desc: 'Every year, the Bittersweet Lemonade Association hosts the annual charity concert, where performers in our community share our talents with the community.',
+    desc: 'Every summer, we host a lawn concert showcasing youth performers from our community.',
   },
   {
-    icon: '🏥',
+    image: 'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052815/bittersweet-lemonade/2025/10/Bittersweet-Lemonade-Cheque-Presentation.jpg',
     title: 'Fundraising & Donation',
-    desc: 'Each year, through a concession and other events, the Bittersweet Lemonade Association raises thousands of dollars for the Richmond Hospital Foundation.',
+    desc: 'All proceeds go directly to the Richmond Hospital Foundation.',
   },
   {
-    icon: '🎸',
+    image: 'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052964/bittersweet-lemonade/2026/03/DSC_6347.jpg',
     title: 'Empowering Youth Musicians',
-    desc: 'The Bittersweet Lemonade Association empowers youth musicians across Vancouver by providing them with the opportunity to showcase their artistic talents to the community.',
+    desc: 'We give young musicians across Vancouver a stage to share their talents.',
   },
   {
-    icon: '🌍',
+    image: 'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052836/bittersweet-lemonade/2026/03/IMG_1554.jpg',
     title: 'Bringing Music to People',
-    desc: 'We curate our program to expose our community to a variety of traditional and contemporary music from around the world, spreading joy through our love of music.',
+    desc: 'From traditional to contemporary, our program celebrates music from around the world.',
   },
 ];
 
@@ -124,10 +124,14 @@ export default function Home() {
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '1.5rem' }}>
             {WHAT_WE_DO.map(item => (
-              <div key={item.title} style={{ background: 'var(--white)', border: '1.5px solid var(--border)', padding: '2rem 1.5rem' }}>
-                <div style={{ fontSize: '2.2rem', marginBottom: '1rem' }}>{item.icon}</div>
-                <h3 style={{ marginBottom: '0.75rem' }}>{item.title}</h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: 0 }}>{item.desc}</p>
+              <div key={item.title} style={{ background: 'var(--white)', border: '1.5px solid var(--border)', overflow: 'hidden' }}>
+                <div style={{ width: '100%', aspectRatio: '16/9', overflow: 'hidden' }}>
+                  <img src={item.image} alt={item.title} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                </div>
+                <div style={{ padding: '1.25rem 1.5rem' }}>
+                  <h3 style={{ marginBottom: '0.5rem' }}>{item.title}</h3>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: 0 }}>{item.desc}</p>
+                </div>
               </div>
             ))}
           </div>
