@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import Meta from '../components/Meta';
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -19,32 +20,54 @@ export default function BlogPost() {
       .catch(() => { setLoading(false); setNotFound(true); });
   }, [slug]);
 
-  if (loading) return <div className="loading">Loading…</div>;
-  if (notFound) return (
-    <div className="not-found">
-      <h2>Post Not Found</h2>
-      <p>That post doesn't exist or has been removed.</p>
-      <Link to="/blog" className="btn btn-primary">Back to Blog</Link>
-    </div>
+  if (loading) return (
+    <>
+      <Meta title="Loading…" path={`/blog/${slug}`} />
+      <div className="loading">Loading…</div>
+    </>
   );
+
+  if (notFound) return (
+    <>
+      <Meta title="Post Not Found" path={`/blog/${slug}`} />
+      <div className="not-found">
+        <h2>Post Not Found</h2>
+        <p>That post doesn't exist or has been removed.</p>
+        <Link to="/blog" className="btn btn-primary">Back to Blog</Link>
+      </div>
+    </>
+  );
+
   if (!post) return null;
 
   return (
-    <div className="single-post">
-      <Link to="/blog" className="back-link">← Back to Blog</Link>
-      <div className="single-post-meta">
-        {post.category} · {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-      </div>
-      <h1>{post.title}</h1>
-      {post.featuredImage && (
-        <div className="single-post-featured">
-          <img src={post.featuredImage} alt={post.title} />
-        </div>
-      )}
-      <div
-        className="single-post-content"
-        dangerouslySetInnerHTML={{ __html: post.content }}
+    <>
+      <Meta
+        title={post.title}
+        description={post.excerpt}
+        image={post.featuredImage}
+        path={`/blog/${post.slug}`}
       />
-    </div>
+
+      <div className="single-post">
+        <Link to="/blog" className="back-link">← Back to Blog</Link>
+        <div className="single-post-meta">
+          {post.category} · {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </div>
+        <h1>{post.title}</h1>
+        {post.featuredImage && (
+          <div className="single-post-featured">
+            <img
+              src={post.featuredImage.replace('/upload/', '/upload/f_auto,q_auto/')}
+              alt={post.title}
+            />
+          </div>
+        )}
+        <div
+          className="single-post-content"
+          dangerouslySetInnerHTML={{ __html: post.content }}
+        />
+      </div>
+    </>
   );
 }

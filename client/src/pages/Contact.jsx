@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Meta from '../components/Meta';
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -32,6 +33,12 @@ export default function Contact() {
 
   return (
     <>
+      <Meta
+        title="Contact Us"
+        description="Get in touch with Bittersweet Lemonade. Questions about membership, partnerships, events, or just want to say hello — we'd love to hear from you."
+        path="/contact"
+      />
+
       <div className="page-header">
         <h1>Contact Us</h1>
         <p>Questions, partnerships, membership, or just to say hello</p>
@@ -47,15 +54,19 @@ export default function Contact() {
               </p>
               <div className="contact-detail">
                 <strong>General Inquiries</strong>
-                info@bittersweet-lemonade.com
+                <a href="mailto:info@bittersweet-lemonade.com">info@bittersweet-lemonade.com</a>
               </div>
               <div className="contact-detail" style={{ marginTop: '2rem' }}>
                 <strong>Follow Us</strong>
-                <div style={{ marginTop: '0.5rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                  <a href="#" style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 700, color: 'var(--lemon-dark)' }}>Instagram</a>
-                  <a href="#" style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 700, color: 'var(--lemon-dark)' }}>Facebook</a>
-                  <a href="#" style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 700, color: 'var(--lemon-dark)' }}>TikTok</a>
-                  <a href="#" style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 700, color: 'var(--lemon-dark)' }}>Discord</a>
+                <div style={{ marginTop: '0.5rem' }}>
+                  <a
+                    href="https://www.instagram.com/bittersweetlemonade.official/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 700, color: 'var(--lemon-dark)' }}
+                  >
+                    Instagram →
+                  </a>
                 </div>
               </div>
             </div>

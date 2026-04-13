@@ -1,6 +1,14 @@
+import Meta from '../components/Meta';
+
 export default function About() {
   return (
     <>
+      <Meta
+        title="Our Story"
+        description="Bittersweet Lemonade was founded in 2021 to bring people together through music. Learn about our journey from a pandemic-era idea to a community nonprofit raising funds for the Richmond Hospital Foundation."
+        path="/our-story"
+      />
+
       <div className="page-header">
         <h1>Our Story</h1>
         <p>Since 2021</p>

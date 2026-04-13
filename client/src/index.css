@@ -149,7 +149,7 @@ input:focus, textarea:focus { border-color: var(--lemon-dark); box-shadow: 0 0 0
 .site-logo-link:hover .site-logo { opacity: 0.8; }
 
 .main-nav { display: flex; gap: 1.5rem; align-items: center; }
-.main-nav a {
+.desktop-nav a, .main-nav a {
   color: #ccc;
   font-size: 0.88em;
   text-transform: uppercase;
@@ -159,8 +159,8 @@ input:focus, textarea:focus { border-color: var(--lemon-dark); box-shadow: 0 0 0
   padding: 0.25rem 0;
   border-bottom: 2px solid transparent;
 }
-.main-nav a:hover { color: var(--lemon-bright); }
-.main-nav a.active { color: var(--lemon); border-bottom-color: var(--lemon); }
+.desktop-nav a:hover, .main-nav a:hover { color: var(--lemon-bright); }
+.desktop-nav a.active, .main-nav a.active { color: var(--lemon); border-bottom-color: var(--lemon); }
 
 .nav-toggle {
   display: none;
@@ -516,6 +516,89 @@ input:focus, textarea:focus { border-color: var(--lemon-dark); box-shadow: 0 0 0
 .not-found h2 { margin-bottom: 1rem; }
 .not-found p { color: var(--text-muted); margin-bottom: 2rem; }
 
+/* ── Scroll Reveal ───────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Skeleton Loading ────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -600px 0; }
+  100% { background-position: 600px 0; }
+}
+.skeleton-line, .skeleton-img, .skeleton-hex {
+  background: linear-gradient(90deg, #ede9d4 25%, #f5f0d8 50%, #ede9d4 75%);
+  background-size: 600px 100%;
+  animation: shimmer 1.4s infinite linear;
+  border-radius: 3px;
+}
+.skeleton-img { width: 100%; aspect-ratio: 16/9; }
+.skeleton-line { height: 14px; margin-bottom: 10px; border-radius: 3px; }
+.skeleton-line.short { width: 45%; }
+.skeleton-line.medium { width: 70%; }
+.skeleton-hex {
+  width: 240px; height: 276px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  margin: 0 auto 1.5rem;
+  border-radius: 0;
+}
+
+/* ── Blog Excerpt Clamp ──────────────────────────────── */
+.post-excerpt {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── Mobile Nav Drawer ───────────────────────────────── */
+.desktop-nav { display: flex; gap: 1.5rem; align-items: center; }
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(280px, 80vw);
+  background: var(--header-bg);
+  border-left: 3px solid var(--lemon);
+  flex-direction: column;
+  padding: 5rem 2rem 2rem;
+  gap: 0.25rem;
+  z-index: 200;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+.mobile-nav.open {
+  transform: translateX(0);
+}
+.mobile-nav a {
+  color: #ccc;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #2a2000;
+  transition: color 0.2s;
+}
+.mobile-nav a:hover, .mobile-nav a.active { color: var(--lemon); }
+
+.nav-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 199;
+}
+
 /* ── Responsive ──────────────────────────────────────── */
 @media (max-width: 900px) {
   .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -527,10 +610,11 @@ input:focus, textarea:focus { border-color: var(--lemon-dark); box-shadow: 0 0 0
 
 @media (max-width: 600px) {
   :root { --side-padding: 5vw; }
-  .main-nav { display: none; }
-  .main-nav.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--header-bg); padding: 1rem var(--side-padding) 1.5rem; gap: 0.5rem; border-top: 2px solid var(--lemon); }
+  .desktop-nav { display: none; }
+  .mobile-nav { display: flex; }
+  .nav-backdrop { display: block; }
   .nav-toggle { display: block; }
-  .site-header { position: relative; }
+  .site-header { position: sticky; }
   .header-inner { position: relative; }
   .footer-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
