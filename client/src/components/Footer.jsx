@@ -63,11 +63,7 @@ export default function Footer() {
           <div className="footer-section">
             <h2>Socials</h2>
             <div className="footer-socials">
-              <a href="#" aria-label="Facebook"><SocialIcon service="facebook" /> @bittersweetlemonade</a>
-              <a href="#" aria-label="Instagram"><SocialIcon service="instagram" /> @bittersweetlemonade</a>
-              <a href="#" aria-label="YouTube"><SocialIcon service="youtube" /> @bittersweetlemonade</a>
-              <a href="#" aria-label="TikTok"><SocialIcon service="tiktok" /> @bittersweetlemonade</a>
-              <a href="#" aria-label="Discord"><SocialIcon service="discord" /> Discord</a>
+              <a href="https://www.instagram.com/bittersweetlemonade.official/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><SocialIcon service="instagram" /> @bittersweetlemonade.official</a>
             </div>
           </div>
         </div>
