@@ -122,7 +122,7 @@ export default function Home() {
           <div className="section-header" style={{ textAlign: 'center' }}>
             <h2>What We Do</h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '1.5rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem' }}>
             {WHAT_WE_DO.map(item => (
               <div key={item.title} style={{ background: 'var(--white)', border: '1.5px solid var(--border)', overflow: 'hidden' }}>
                 <div style={{ width: '100%', aspectRatio: '16/9', overflow: 'hidden' }}>
