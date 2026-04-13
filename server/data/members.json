@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Bella Li",
+    "role": "President",
+    "image": "/uploads/2025/07/bella-li.jpg",
+    "bio": "Bella founded the association with a vision to make music a uniting force for young people everywhere."
+  },
+  {
+    "id": 2,
+    "name": "Harold Wang",
+    "role": "Vice President",
+    "image": "/uploads/2025/07/harold-wang.jpg",
+    "bio": "Harold leads our community outreach programs and oversees partnerships with local schools and organizations."
+  }
+]
