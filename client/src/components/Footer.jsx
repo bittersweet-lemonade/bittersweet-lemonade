@@ -33,7 +33,7 @@ export default function Footer() {
           {/* Column 1: Get in Touch */}
           <div className="footer-section">
             <img
-              src="/uploads/2025/02/BittersweetLemonadeLogopng.png"
+              src="https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052842/bittersweet-lemonade/2025/02/BittersweetLemonadeLogopng.png"
               alt="Bittersweet Lemonade Association"
               style={{ height: 52, width: 'auto', marginBottom: '1.25rem' }}
             />

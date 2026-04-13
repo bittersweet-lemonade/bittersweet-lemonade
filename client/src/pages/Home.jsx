@@ -2,13 +2,13 @@ import { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 const HERO_IMAGES = [
-  '/uploads/2025/10/DSC07724.jpg',
-  '/uploads/2025/10/DSC07731.jpg',
-  '/uploads/2025/10/DSC07740.jpg',
-  '/uploads/2025/10/DSC07742.jpg',
-  '/uploads/2026/03/DSC_6347.jpeg',
-  '/uploads/2026/03/DSC_6349.jpeg',
-  '/uploads/2026/03/DSC_6351.jpeg',
+  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052807/bittersweet-lemonade/2025/10/DSC07724.jpg',
+  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052809/bittersweet-lemonade/2025/10/DSC07731.jpg',
+  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052811/bittersweet-lemonade/2025/10/DSC07740.jpg',
+  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052812/bittersweet-lemonade/2025/10/DSC07742.jpg',
+  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052964/bittersweet-lemonade/2026/03/DSC_6347.jpg',
+  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052828/bittersweet-lemonade/2026/03/DSC_6349.jpg',
+  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052831/bittersweet-lemonade/2026/03/DSC_6351.jpg',
 ];
 
 function HeroSlideshow() {
@@ -86,7 +86,7 @@ export default function Home() {
         <HeroSlideshow />
         <div className="hero-content">
           <img
-            src="/uploads/2025/02/BittersweetLemonadeLogopng.png"
+            src="https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052842/bittersweet-lemonade/2025/02/BittersweetLemonadeLogopng.png"
             alt="Bittersweet Lemonade Association"
             style={{ height: 90, width: 'auto', marginBottom: '1.5rem' }}
           />

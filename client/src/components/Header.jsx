@@ -9,7 +9,7 @@ export default function Header() {
       <div className="header-inner container">
         <Link to="/" className="site-logo-link">
           <img
-            src="/uploads/2025/02/BittersweetLemonadeLogopng.png"
+            src="https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052842/bittersweet-lemonade/2025/02/BittersweetLemonadeLogopng.png"
             alt="Bittersweet Lemonade Association"
             className="site-logo"
           />

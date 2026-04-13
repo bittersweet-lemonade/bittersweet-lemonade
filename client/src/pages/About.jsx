@@ -34,7 +34,7 @@ export default function About() {
         <div className="container">
           <div className="about-hero">
             <img
-              src="/uploads/2025/02/Bittersweet-Lemonade-Oct-2024-Update.jpg"
+              src="https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052841/bittersweet-lemonade/2025/02/Bittersweet-Lemonade-Oct-2024-Update.jpg"
               alt="Bittersweet Lemonade Association"
             />
             <div className="about-text">
@@ -109,7 +109,7 @@ export default function About() {
             Every event, every performance, every moment of connection — that's why we're here.
           </p>
           <img
-            src="/uploads/2025/10/DSC07724.jpg"
+            src="https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052807/bittersweet-lemonade/2025/10/DSC07724.jpg"
             alt="Bittersweet Lemonade Association event"
             style={{ width: '100%', maxWidth: 900, margin: '0 auto', display: 'block', aspectRatio: '16/9', objectFit: 'cover', border: '2px solid var(--lemon)' }}
           />
