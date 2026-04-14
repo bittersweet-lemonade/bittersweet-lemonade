@@ -109,7 +109,7 @@ app.post('/api/contact', async (req: Request<object, object, ContactBody>, res: 
       <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
         <!-- Header -->
         <tr><td style="background:#F5C800;padding:32px 40px;text-align:center;border-radius:12px 12px 0 0;">
-          <img src="https://res.cloudinary.com/dx8zth9lo/image/upload/f_auto,q_auto/bittersweet-lemonade/logo" alt="Bittersweet Lemonade" height="48" style="max-height:48px;" onerror="this.style.display='none'"/>
+          <img src="https://res.cloudinary.com/dx8zth9lo/image/upload/f_auto,q_auto/v1776052842/bittersweet-lemonade/2025/02/BittersweetLemonadeLogopng.png" alt="Bittersweet Lemonade" height="48" style="max-height:48px;" onerror="this.style.display='none'"/>
           <div style="font-size:28px;font-weight:900;color:#1A1400;letter-spacing:2px;margin-top:8px;">BITTERSWEET LEMONADE</div>
         </td></tr>
         <!-- Body -->
@@ -209,7 +209,7 @@ app.post('/api/newsletter', async (req: Request<object, object, NewsletterBody>,
       <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
         <!-- Header -->
         <tr><td style="background:#F5C800;padding:40px;text-align:center;border-radius:12px 12px 0 0;">
-          <img src="https://res.cloudinary.com/dx8zth9lo/image/upload/f_auto,q_auto/bittersweet-lemonade/logo" alt="Bittersweet Lemonade" height="56" style="max-height:56px;" onerror="this.style.display='none'"/>
+          <img src="https://res.cloudinary.com/dx8zth9lo/image/upload/f_auto,q_auto/v1776052842/bittersweet-lemonade/2025/02/BittersweetLemonadeLogopng.png" alt="Bittersweet Lemonade" height="56" style="max-height:56px;" onerror="this.style.display='none'"/>
           <div style="font-size:32px;font-weight:900;color:#1A1400;letter-spacing:3px;margin-top:12px;">BITTERSWEET LEMONADE</div>
           <div style="font-size:13px;color:#4A3F00;letter-spacing:2px;text-transform:uppercase;margin-top:6px;">Youth Music Society</div>
         </td></tr>
