@@ -1,7 +1,6 @@
 # Bittersweet Lemonade Association
 
-Website for the Bittersweet Lemonade Association — a student-led nonprofit in Richmond, BC that raises funds for the Richmond Hospital Foundation through annual charity concerts.
-
+Website for the Bittersweet Lemonade Association — a student-led nonprofit in Vancouver, BC
 **Live site:** https://www.bittersweet-lemonade.com
 
 ## Stack
