@@ -152,6 +152,58 @@ app.post('/api/contact', async (req: Request<object, object, ContactBody>, res: 
         console.error('Resend error:', err);
         return res.status(500).json({ error: 'Failed to send email.' });
       }
+
+      // Send receipt to sender
+      await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+        },
+        body: JSON.stringify({
+          from: 'Bittersweet Lemonade <noreply@bittersweet-lemonade.com>',
+          to: [email],
+          subject: 'We got your message!',
+          text: `Hi ${name},\n\nThanks for reaching out — we've received your message and will get back to you soon.\n\nHere's a copy of what you sent:\n\n"${message}"\n\nBittersweet Lemonade`,
+          html: `<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>We got your message</title></head>
+<body style="margin:0;padding:0;background:#1A1400;font-family:Inter,system-ui,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#1A1400;padding:40px 16px;">
+    <tr><td align="center">
+      <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
+        <!-- Header -->
+        <tr><td style="background:#F5C800;padding:20px 40px 32px;text-align:center;border-radius:12px 12px 0 0;">
+          <img src="https://res.cloudinary.com/dx8zth9lo/image/upload/f_auto,q_auto/v1776052842/bittersweet-lemonade/2025/02/BittersweetLemonadeLogopng.png" alt="Bittersweet Lemonade" height="48" style="max-height:48px;width:auto;display:block;margin:0 auto;" onerror="this.style.display='none'"/>
+          <div style="font-size:28px;font-weight:900;color:#1A1400;letter-spacing:2px;margin-top:8px;">BITTERSWEET LEMONADE</div>
+        </td></tr>
+        <!-- Body -->
+        <tr><td style="background:#FFFDF0;padding:48px 40px;text-align:center;">
+          <h1 style="margin:0 0 8px;font-size:28px;color:#1A1400;font-weight:900;letter-spacing:2px;text-transform:uppercase;">Hi ${name}!</h1>
+          <p style="margin:0 0 32px;font-size:16px;color:#4A3F00;line-height:1.7;">Thanks for reaching out — we've received your message and will get back to you soon.</p>
+          <div style="margin:0 0 24px;height:2px;background:linear-gradient(to right,#F5C800,#EDD96A,#F5C800);border-radius:2px;"></div>
+          <div style="text-align:left;">
+            <div style="font-size:11px;color:#7A6B1A;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">Your message</div>
+            <div style="background:#fff;border:1px solid #EDD96A;border-radius:8px;padding:20px;font-size:15px;color:#1A1400;line-height:1.7;white-space:pre-wrap;">${message.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</div>
+          </div>
+          <div style="margin-top:32px;">
+            <a href="https://bittersweet-lemonade.com" style="display:inline-block;background:#F5C800;color:#1A1400;font-weight:700;text-decoration:none;padding:14px 32px;border-radius:8px;font-size:14px;letter-spacing:1px;text-transform:uppercase;">Visit Our Website</a>
+          </div>
+        </td></tr>
+        <!-- Footer -->
+        <tr><td style="background:#1A1400;padding:24px 40px;text-align:center;border-radius:0 0 12px 12px;">
+          <div style="font-size:12px;color:#7A6B1A;line-height:1.8;">
+            <a href="https://bittersweet-lemonade.com" style="color:#F5C800;text-decoration:none;font-weight:600;">bittersweet-lemonade.com</a><br/>
+            Richmond, BC &nbsp;·&nbsp; Youth Music Society
+          </div>
+        </td></tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>`,
+        }),
+      });
     } catch (err) {
       console.error('Email send error:', err);
       return res.status(500).json({ error: 'Failed to send email.' });
