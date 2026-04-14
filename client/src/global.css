@@ -85,6 +85,13 @@
   .reveal { @apply opacity-0 translate-y-7 transition-all duration-[650ms] ease-out; }
   .reveal.revealed { @apply opacity-100 translate-y-0; }
 
+  /* Page transition */
+  @keyframes page-enter {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .page-transition { animation: page-enter 0.3s ease-out; }
+
   /* Form alerts */
   .form-success { @apply bg-[#f0fff4] border-[1.5px] border-[#38a169] text-[#276749] p-4 text-[0.9rem] rounded-sm; }
   .form-error   { @apply bg-[#fff5f5] border-[1.5px] border-[#e53e3e] text-[#c53030] p-4 text-[0.9rem] rounded-sm; }

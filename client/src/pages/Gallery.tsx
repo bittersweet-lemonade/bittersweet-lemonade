@@ -83,7 +83,11 @@ export default function Gallery() {
           </div>
 
           {loading ? (
-            <div className="loading">Loading gallery…</div>
+            <div className="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-3">
+              {Array.from({ length: 12 }).map((_, i) => (
+                <div key={i} className="aspect-square skeleton" />
+              ))}
+            </div>
           ) : (
             <div className="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-3">
               {filtered.map((img, idx) => (
