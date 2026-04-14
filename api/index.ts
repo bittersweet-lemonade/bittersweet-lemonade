@@ -233,7 +233,7 @@ app.post('/api/newsletter', async (req: Request<object, object, NewsletterBody>,
                 <img src="https://res.cloudinary.com/dx8zth9lo/image/upload/f_auto,q_auto,w_200,h_150,c_fill/v1776052807/bittersweet-lemonade/2025/10/DSC07724.jpg" alt="Performance" width="190" style="display:block;width:100%;border-radius:6px;"/>
               </td>
               <td width="33%" style="padding:0 0 8px 4px;">
-                <img src="https://res.cloudinary.com/dx8zth9lo/image/upload/f_auto,q_auto,w_200,h_150,c_fill/v1776052831/bittersweet-lemonade/2026/03/DSC_6351.jpg" alt="Performance" width="190" style="display:block;width:100%;border-radius:6px;"/>
+                <img src="https://res.cloudinary.com/dx8zth9lo/image/upload/f_auto,q_auto,w_200,h_150,c_fill/v1776052811/bittersweet-lemonade/2025/10/DSC07740.jpg" alt="Performance" width="190" style="display:block;width:100%;border-radius:6px;"/>
               </td>
             </tr>
           </table>
