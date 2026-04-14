@@ -17,6 +17,15 @@ const HERO_IMAGES = [
   'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052832/bittersweet-lemonade/2026/03/DSC_6352.jpg',
 ];
 
+// Set to null to hide the banner when no upcoming event
+const UPCOMING_EVENT = {
+  label: 'Upcoming Event',
+  name: '6th Annual Summer Lawn Concert',
+  date: 'Summer 2026 · Richmond, BC',
+  cta: 'Stay Tuned',
+  link: null as string | null, // set to ticket/RSVP URL once available
+};
+
 interface Stat { value: string; label: string; }
 interface WhatWeDo { image: string; title: string; desc: string; }
 
@@ -201,6 +210,27 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Upcoming event banner */}
+      {UPCOMING_EVENT && (
+        <div className="bg-ink border-b-[3px] border-lemon px-[4vw] py-5">
+          <div className="max-w-[1200px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-4 text-center sm:text-left">
+              <span className="hidden sm:block text-[0.7rem] font-bold uppercase tracking-[0.12em] text-lemon bg-lemon/15 px-3 py-1 rounded-sm shrink-0">
+                {UPCOMING_EVENT.label}
+              </span>
+              <div>
+                <p className="font-bold text-lemon-bright text-[1rem] mb-0 leading-tight">{UPCOMING_EVENT.name}</p>
+                <p className="text-[0.82rem] text-[rgba(255,243,163,0.7)] mb-0 mt-0.5">{UPCOMING_EVENT.date}</p>
+              </div>
+            </div>
+            {UPCOMING_EVENT.link
+              ? <a href={UPCOMING_EVENT.link} target="_blank" rel="noopener noreferrer" className="btn-primary shrink-0">{UPCOMING_EVENT.cta}</a>
+              : <span className="text-[0.78rem] uppercase tracking-[0.08em] font-bold text-lemon/60 shrink-0">{UPCOMING_EVENT.cta} →</span>
+            }
+          </div>
+        </div>
+      )}
 
       {/* Strip */}
       <div className="bg-lemon py-6 px-[4vw] text-center">

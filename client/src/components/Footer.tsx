@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { Post } from '../types';
 
@@ -9,6 +9,52 @@ const InstagramIcon = () => (
 );
 
 const footerH2 = 'font-heading text-[clamp(1.2rem,2.5vw,1.8rem)] uppercase text-lemon pb-3 mb-6 border-b border-[#3a3000] tracking-[0.05em] leading-tight';
+
+function NewsletterForm() {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!email) return;
+    setStatus('loading');
+    try {
+      const res = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json() as { success?: boolean };
+      setStatus(res.ok && data.success ? 'success' : 'error');
+    } catch {
+      setStatus('error');
+    }
+  };
+
+  if (status === 'success') {
+    return <p className="text-lemon text-[0.88rem] font-bold">You're on the list. See you at the next concert!</p>;
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="flex gap-2 mt-4">
+      <input
+        type="email"
+        placeholder="your@email.com"
+        value={email}
+        onChange={e => setEmail(e.target.value)}
+        required
+        className="bg-[#2a2000] border-[#3a3000] text-[#FFF3A3] placeholder:text-[#5a4e10] text-[0.85rem] py-[0.6em] px-[0.9em] flex-1 min-w-0 focus:border-lemon"
+      />
+      <button
+        type="submit"
+        disabled={status === 'loading'}
+        className="btn-primary py-[0.6em] px-[1.2em] text-[0.82rem] shrink-0"
+      >
+        {status === 'loading' ? '…' : 'Notify Me'}
+      </button>
+    </form>
+  );
+}
 
 export default function Footer() {
   const [recentPosts, setRecentPosts] = useState<Post[]>([]);
@@ -21,67 +67,83 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="bg-ink text-[#FFF3A3] pt-[3vw] pb-[2vw] px-[4vw] border-t-[3px] border-lemon">
-      <div className="max-w-[1200px] mx-auto">
+    <footer className="bg-ink text-[#FFF3A3] border-t-[3px] border-lemon">
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-[2fr_1fr_1fr] gap-[2vw]">
-
-          {/* Brand + contact */}
-          <div className="sm:col-span-2 md:col-auto">
-            <img
-              src="https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052842/bittersweet-lemonade/2025/02/BittersweetLemonadeLogopng.png"
-              alt="Bittersweet Lemonade Association"
-              className="h-[52px] w-auto mb-5"
-            />
-            <h2 className={footerH2}>Get in touch!</h2>
-            <p className="text-[#bfaa50] text-[0.9rem]">
-              Questions, membership, partnerships, or just to say hello. Reach out any time.
-            </p>
-            <div className="mt-4">
-              <p className="text-[#bfaa50] text-[0.9rem] mb-0">info@bittersweet-lemonade.com</p>
-            </div>
+      {/* Newsletter strip */}
+      <div className="px-[4vw] py-8 border-b border-[#2a2000]">
+        <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12">
+          <div className="shrink-0">
+            <p className="font-bold text-[1rem] text-lemon-bright mb-1">Stay in the Loop</p>
+            <p className="text-[0.85rem] text-[#bfaa50] mb-0">Get notified about our next concert and events.</p>
           </div>
-
-          {/* Recent posts */}
-          <div>
-            <h2 className={footerH2}>Posts</h2>
-            <div className="flex flex-col">
-              {recentPosts.map(post => (
-                <Link
-                  key={post.id}
-                  to={`/blog/${post.slug}`}
-                  className="block text-[#9e8a30] text-[0.85rem] py-[0.3rem] border-b border-[#2a2000] hover:text-lemon transition-colors duration-200"
-                >
-                  {post.title}
-                </Link>
-              ))}
-              {recentPosts.length === 0 && (
-                <Link to="/blog" className="text-[#9e8a30] text-[0.85rem] hover:text-lemon transition-colors duration-200">
-                  View all posts
-                </Link>
-              )}
-            </div>
-          </div>
-
-          {/* Socials */}
-          <div>
-            <h2 className={footerH2}>Socials</h2>
-            <div className="flex flex-col gap-2">
-              <a
-                href="https://www.instagram.com/bittersweetlemonade.official/"
-                aria-label="Instagram"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-[0.6rem] text-[#9e8a30] text-[0.85rem] uppercase tracking-[0.05em] hover:text-lemon transition-colors duration-200"
-              >
-                <InstagramIcon /> @bittersweetlemonade.official
-              </a>
-            </div>
+          <div className="w-full md:max-w-[400px]">
+            <NewsletterForm />
           </div>
         </div>
+      </div>
 
-        <div className="mt-8 pt-4 border-t border-[#2a2000] text-center text-[#5a4e10] text-[0.8rem]">
-          <p className="mb-0">&copy; {new Date().getFullYear()} Bittersweet Lemonade. All rights reserved.</p>
+      {/* Main footer */}
+      <div className="px-[4vw] pt-[3vw] pb-[2vw]">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-[2fr_1fr_1fr] gap-[2vw]">
+
+            {/* Brand + contact */}
+            <div className="sm:col-span-2 md:col-auto">
+              <img
+                src="https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052842/bittersweet-lemonade/2025/02/BittersweetLemonadeLogopng.png"
+                alt="Bittersweet Lemonade Association"
+                className="h-[52px] w-auto mb-5"
+              />
+              <h2 className={footerH2}>Get in touch!</h2>
+              <p className="text-[#bfaa50] text-[0.9rem]">
+                Questions, membership, partnerships, or just to say hello. Reach out any time.
+              </p>
+              <div className="mt-4">
+                <p className="text-[#bfaa50] text-[0.9rem] mb-0">info@bittersweet-lemonade.com</p>
+              </div>
+            </div>
+
+            {/* Recent posts */}
+            <div>
+              <h2 className={footerH2}>Posts</h2>
+              <div className="flex flex-col">
+                {recentPosts.map(post => (
+                  <Link
+                    key={post.id}
+                    to={`/blog/${post.slug}`}
+                    className="block text-[#9e8a30] text-[0.85rem] py-[0.3rem] border-b border-[#2a2000] hover:text-lemon transition-colors duration-200"
+                  >
+                    {post.title}
+                  </Link>
+                ))}
+                {recentPosts.length === 0 && (
+                  <Link to="/blog" className="text-[#9e8a30] text-[0.85rem] hover:text-lemon transition-colors duration-200">
+                    View all posts
+                  </Link>
+                )}
+              </div>
+            </div>
+
+            {/* Socials */}
+            <div>
+              <h2 className={footerH2}>Socials</h2>
+              <div className="flex flex-col gap-2">
+                <a
+                  href="https://www.instagram.com/bittersweetlemonade.official/"
+                  aria-label="Instagram"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-[0.6rem] text-[#9e8a30] text-[0.85rem] uppercase tracking-[0.05em] hover:text-lemon transition-colors duration-200"
+                >
+                  <InstagramIcon /> @bittersweetlemonade.official
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8 pt-4 border-t border-[#2a2000] text-center text-[#5a4e10] text-[0.8rem]">
+            <p className="mb-0">&copy; {new Date().getFullYear()} Bittersweet Lemonade. All rights reserved.</p>
+          </div>
         </div>
       </div>
     </footer>

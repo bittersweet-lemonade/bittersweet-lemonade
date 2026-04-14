@@ -36,6 +36,10 @@ interface ContactBody {
   message?: string;
 }
 
+interface NewsletterBody {
+  email?: string;
+}
+
 const app = express();
 const PORT = process.env.PORT ?? 3001;
 
@@ -116,6 +120,43 @@ app.post('/api/contact', async (req: Request<object, object, ContactBody>, res: 
   }
 
   res.json({ success: true, message: 'Your message has been received!' });
+});
+
+// ── Newsletter ─────────────────────────────────────────
+app.post('/api/newsletter', async (req: Request<object, object, NewsletterBody>, res: Response) => {
+  const { email } = req.body;
+  if (!email) return res.status(400).json({ error: 'Email is required.' });
+
+  if (process.env.RESEND_API_KEY) {
+    try {
+      const response = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+        },
+        body: JSON.stringify({
+          from: 'Bittersweet Lemonade <noreply@bittersweet-lemonade.com>',
+          to: ['info@bittersweet-lemonade.com'],
+          subject: 'New Newsletter Subscriber',
+          text: `New subscriber: ${email}`,
+          html: `<p>New newsletter subscriber: <strong>${email}</strong></p>`,
+        }),
+      });
+      if (!response.ok) {
+        const err = await response.text();
+        console.error('Resend error:', err);
+        return res.status(500).json({ error: 'Failed to process subscription.' });
+      }
+    } catch (err) {
+      console.error('Newsletter error:', err);
+      return res.status(500).json({ error: 'Failed to process subscription.' });
+    }
+  } else {
+    console.log('Newsletter signup:', email);
+  }
+
+  res.json({ success: true });
 });
 
 // ── Health ─────────────────────────────────────────────
