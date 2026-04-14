@@ -124,33 +124,31 @@ app.post('/api/newsletter', async (req: Request<object, object, NewsletterBody>,
   const { email } = req.body;
   if (!email) return res.status(400).json({ error: 'Email is required.' });
 
-  if (process.env.RESEND_API_KEY) {
+  const apiKey = process.env.RESEND_API_KEY;
+  const audienceId = process.env.RESEND_AUDIENCE_ID;
+
+  if (apiKey && audienceId) {
     try {
-      const response = await fetch('https://api.resend.com/emails', {
+      // Add contact to Resend Audience
+      const response = await fetch(`https://api.resend.com/audiences/${audienceId}/contacts`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+          Authorization: `Bearer ${apiKey}`,
         },
-        body: JSON.stringify({
-          from: 'Bittersweet Lemonade <noreply@bittersweet-lemonade.com>',
-          to: ['info@bittersweet-lemonade.com'],
-          subject: 'New Newsletter Subscriber',
-          text: `New subscriber: ${email}`,
-          html: `<p>New newsletter subscriber: <strong>${email}</strong></p>`,
-        }),
+        body: JSON.stringify({ email, unsubscribed: false }),
       });
       if (!response.ok) {
         const err = await response.text();
-        console.error('Resend error:', err);
-        return res.status(500).json({ error: 'Failed to process subscription.' });
+        console.error('Resend audience error:', err);
+        return res.status(500).json({ error: 'Failed to subscribe.' });
       }
     } catch (err) {
       console.error('Newsletter error:', err);
-      return res.status(500).json({ error: 'Failed to process subscription.' });
+      return res.status(500).json({ error: 'Failed to subscribe.' });
     }
   } else {
-    console.log('Newsletter signup:', email);
+    console.log('Newsletter signup (no Resend config):', email);
   }
 
   res.json({ success: true });
