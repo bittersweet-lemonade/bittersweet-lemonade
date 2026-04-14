@@ -1,4 +1,5 @@
-/** @type {import('tailwindcss').Config} */
+import type { Config } from 'tailwindcss';
+
 export default {
   content: ['./index.html', './src/**/*.{ts,tsx}'],
   theme: {
@@ -11,12 +12,12 @@ export default {
       colors: {
         lemon: {
           DEFAULT: '#F5C800',
-          bright: '#FFE033',
-          dark:   '#C49A00',
-          pale:   '#FFFBE6',
-          mid:    '#FFF3A3',
+          bright:  '#FFE033',
+          dark:    '#C49A00',
+          pale:    '#FFFBE6',
+          mid:     '#FFF3A3',
         },
-        cream:  '#FFFDF0',
+        cream: '#FFFDF0',
         ink: {
           DEFAULT: '#1A1400',
           mid:     '#4A3F00',
@@ -33,10 +34,6 @@ export default {
           '0%':   { backgroundPosition: '-600px 0' },
           '100%': { backgroundPosition: '600px 0' },
         },
-        reveal: {
-          from: { opacity: '0', transform: 'translateY(28px)' },
-          to:   { opacity: '1', transform: 'none' },
-        },
       },
       animation: {
         shimmer: 'shimmer 1.4s infinite linear',
@@ -44,4 +41,4 @@ export default {
     },
   },
   plugins: [],
-};
+} satisfies Config;
