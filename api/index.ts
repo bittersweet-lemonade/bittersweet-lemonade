@@ -208,14 +208,10 @@ app.post('/api/newsletter', async (req: Request<object, object, NewsletterBody>,
     <tr><td align="center">
       <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
         <!-- Header -->
-        <tr><td style="background:#F5C800;padding:20px 40px 40px;text-align:center;border-radius:12px 12px 0 0;">
+        <tr><td style="background:#F5C800;padding:20px 40px 32px;text-align:center;border-radius:12px 12px 0 0;">
           <img src="https://res.cloudinary.com/dx8zth9lo/image/upload/f_auto,q_auto/v1776052842/bittersweet-lemonade/2025/02/BittersweetLemonadeLogopng.png" alt="Bittersweet Lemonade" height="56" style="max-height:56px;width:auto;display:block;margin:0 auto;" onerror="this.style.display='none'"/>
           <div style="font-size:32px;font-weight:900;color:#1A1400;letter-spacing:3px;margin-top:12px;">BITTERSWEET LEMONADE</div>
           <div style="font-size:13px;color:#4A3F00;letter-spacing:2px;text-transform:uppercase;margin-top:6px;">Youth Music Society</div>
-        </td></tr>
-        <!-- Hero image -->
-        <tr><td style="padding:0;">
-          <img src="https://res.cloudinary.com/dx8zth9lo/image/upload/f_auto,q_auto,w_600/v1776052836/bittersweet-lemonade/2026/03/DSC_6354.jpg" alt="Concert" width="600" style="display:block;width:100%;max-width:600px;"/>
         </td></tr>
         <!-- Body -->
         <tr><td style="background:#FFFDF0;padding:48px 40px;text-align:center;">
@@ -225,8 +221,26 @@ app.post('/api/newsletter', async (req: Request<object, object, NewsletterBody>,
           <p style="margin:0 0 32px;font-size:14px;color:#7A6B1A;line-height:1.7;">We're a youth-led concert organization raising funds for local charities through the power of music. Every event, every note, every dollar counts.</p>
           <a href="https://bittersweet-lemonade.com" style="display:inline-block;background:#F5C800;color:#1A1400;font-weight:700;text-decoration:none;padding:16px 40px;border-radius:8px;font-size:14px;letter-spacing:2px;text-transform:uppercase;">Visit Our Website</a>
         </td></tr>
+        <!-- Photo Gallery -->
+        <tr><td style="background:#1A1400;padding:24px 16px 8px;">
+          <div style="font-size:11px;color:#7A6B1A;text-transform:uppercase;letter-spacing:2px;text-align:center;margin-bottom:16px;">From the Stage</div>
+          <table width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="33%" style="padding:0 4px 8px 0;">
+                <img src="https://res.cloudinary.com/dx8zth9lo/image/upload/f_auto,q_auto,w_200,h_150,c_fill/v1776052836/bittersweet-lemonade/2026/03/DSC_6354.jpg" alt="Performance" width="190" style="display:block;width:100%;border-radius:6px;"/>
+              </td>
+              <td width="33%" style="padding:0 4px 8px;">
+                <img src="https://res.cloudinary.com/dx8zth9lo/image/upload/f_auto,q_auto,w_200,h_150,c_fill/v1776052807/bittersweet-lemonade/2025/10/DSC07724.jpg" alt="Performance" width="190" style="display:block;width:100%;border-radius:6px;"/>
+              </td>
+              <td width="33%" style="padding:0 0 8px 4px;">
+                <img src="https://res.cloudinary.com/dx8zth9lo/image/upload/f_auto,q_auto,w_200,h_150,c_fill/v1776052831/bittersweet-lemonade/2026/03/DSC_6351.jpg" alt="Performance" width="190" style="display:block;width:100%;border-radius:6px;"/>
+              </td>
+            </tr>
+          </table>
+        </td></tr>
         <!-- Footer -->
-        <tr><td style="background:#1A1400;padding:28px 40px;text-align:center;border-radius:0 0 12px 12px;">
+        <tr><td style="background:#1A1400;padding:20px 40px 28px;text-align:center;border-radius:0 0 12px 12px;">
+          <div style="height:1px;background:#2A2000;margin-bottom:20px;"></div>
           <div style="font-size:12px;color:#7A6B1A;line-height:1.8;">
             <a href="https://bittersweet-lemonade.com" style="color:#F5C800;text-decoration:none;font-weight:600;">bittersweet-lemonade.com</a><br/>
             Richmond, BC &nbsp;·&nbsp; Youth Music Society<br/>
