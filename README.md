@@ -1,54 +1,102 @@
-# Bittersweet Lemonade — React + Node.js
+# Bittersweet Lemonade Association
 
-A rebuild of the Bittersweet Lemonade WordPress site using React (Vite) frontend and Node.js (Express) backend.
+Website for the Bittersweet Lemonade Association — a student-led nonprofit in Richmond, BC that raises funds for the Richmond Hospital Foundation through annual charity concerts.
+
+**Live site:** https://www.bittersweet-lemonade.com
+
+## Stack
+
+| Layer | Tech |
+|-------|------|
+| Frontend | React 18, TypeScript, Vite 5 |
+| Styling | Tailwind CSS v3 |
+| Routing | React Router v6 |
+| Backend | Express 4, TypeScript (`tsx` runner) |
+| API (prod) | Vercel serverless function (`api/index.ts`) |
+| Images | Cloudinary CDN (`f_auto,q_auto`) |
+| Email | Resend API |
+| Deployment | Vercel |
 
 ## Project Structure
 
 ```
-bittersweet-app/
-├── backend/          Node.js + Express API
-│   ├── data/         JSON data files (posts, gallery, members)
-│   ├── routes/       API route handlers
-│   └── server.js     Express server
-└── frontend/         React + Vite app
-    └── src/
-        ├── components/  TopBar, Header, Footer, Layout
-        └── pages/       Home, About, Blog, Gallery, Contact
+bittersweet-lemonade/
+├── client/                   React + Vite frontend
+│   ├── src/
+│   │   ├── components/       Layout, Header, TopBar, Footer, Meta
+│   │   ├── pages/            Home, About, Blog, BlogPost, Team, Contact, NotFound, Gallery
+│   │   ├── types.ts          Shared TypeScript interfaces (Post, Member)
+│   │   ├── global.css        Tailwind directives + custom utilities
+│   │   └── App.tsx           Router setup
+│   ├── tailwind.config.js    Custom palette (lemon/cream/ink), fonts, breakpoints
+│   └── public/               robots.txt, sitemap.xml, favicon
+├── server/                   Express dev server (local only)
+│   ├── data/                 JSON data files
+│   │   ├── posts.json
+│   │   ├── members.json
+│   │   └── gallery.json
+│   └── index.ts              Express app with all API routes
+├── api/
+│   └── index.ts              Vercel serverless entry point (same routes as server/)
+├── scripts/                  One-off Cloudinary upload utilities
+└── vercel.json               Build + rewrite config
 ```
 
-## Setup & Run
+## Local Development
 
 ### 1. Install dependencies
 
 ```bash
-cd bittersweet-app
-npm run install:all
+npm install --prefix client
+npm install --prefix server
 ```
 
-### 2. Start the backend (port 3001)
+### 2. Start dev server (Express API + Vite proxy)
 
 ```bash
-npm run dev:backend
+# Terminal 1 — API on port 3001
+npm run dev:server
+
+# Terminal 2 — Vite on port 5173 (proxies /api → 3001)
+npm run dev:client
 ```
 
-### 3. Start the frontend (port 3000)
-
-```bash
-npm run dev:frontend
-```
-
-Open http://localhost:3000
-
-## How images work
-
-The backend serves images directly from the existing WordPress uploads directory at `../public_html/wp-content/uploads`. No files need to be copied — they're served at `/uploads/...` through the Express static middleware.
+Open http://localhost:5173
 
 ## API Endpoints
 
 | Method | Path | Description |
 |--------|------|-------------|
-| GET | /api/posts | All blog posts |
-| GET | /api/posts/:slug | Single post |
-| GET | /api/gallery | All gallery images (optional ?category=) |
-| GET | /api/members | Band members |
-| POST | /api/contact | Submit contact form |
+| GET | `/api/posts` | All blog posts |
+| GET | `/api/posts/:slug` | Single post by slug |
+| GET | `/api/members` | All team members |
+| GET | `/api/gallery` | Gallery images |
+| POST | `/api/contact` | Submit contact form (sends email via Resend) |
+
+## Environment Variables
+
+Set these in Vercel project settings (not committed):
+
+| Variable | Purpose |
+|----------|---------|
+| `RESEND_API_KEY` | Sends contact form emails via Resend |
+
+## Content Management
+
+All content is stored as JSON in `server/data/`:
+
+- **`posts.json`** — Blog posts with title, slug, excerpt, content (HTML), date, featuredImage (Cloudinary URL), category
+- **`members.json`** — Team members with name, role, bio, image (Cloudinary URL), type (`executive` | `advisory`)
+- **`gallery.json`** — Gallery images with src, alt, category
+
+To update content, edit the JSON files and commit. Vercel redeploys automatically.
+
+## Images
+
+All images are hosted on Cloudinary. URLs are transformed at render time:
+
+```
+/upload/ → /upload/f_auto,q_auto/
+```
+
+This auto-serves WebP/AVIF and applies quality compression. Use the scripts in `scripts/` to upload new images to Cloudinary.
