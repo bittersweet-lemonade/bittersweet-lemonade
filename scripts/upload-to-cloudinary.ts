@@ -3,9 +3,9 @@ import path from 'path';
 import fs from 'fs';
 
 cloudinary.config({
-  cloud_name: 'dx8zth9lo',
-  api_key: '851276645764454',
-  api_secret: 'bK9bFQs-ykLSb8Lgw-2isrYhMcw',
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
 const DATA_DIR    = path.join(__dirname, '../server/data');
