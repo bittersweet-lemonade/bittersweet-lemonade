@@ -19,9 +19,9 @@ const HERO_IMAGES = [
 
 // Set to null to hide the banner when no upcoming event
 const UPCOMING_EVENT = {
-  label: 'Upcoming Event',
-  name: '6th Annual Summer Lawn Concert',
-  date: 'Summer 2026 · Richmond, BC',
+  label: 'Coming Soon',
+  name: 'Our Next Event is in the Works',
+  date: 'Details to be announced',
   cta: 'Stay Tuned',
   link: null as string | null, // set to ticket/RSVP URL once available
 };
