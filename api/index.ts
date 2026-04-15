@@ -133,7 +133,7 @@ app.post('/api/contact', async (req: Request<object, object, ContactBody>, res: 
           <div style="font-size:11px;color:#7A6B1A;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">Message</div>
           <div style="background:#fff;border:1px solid #EDD96A;border-radius:8px;padding:20px;font-size:15px;color:#1A1400;line-height:1.7;white-space:pre-wrap;">${message.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</div>
           <div style="margin-top:32px;text-align:center;">
-            <a href="mailto:${email}" style="display:inline-block;background:#F5C800;color:#1A1400;font-weight:700;text-decoration:none;padding:14px 32px;border-radius:8px;font-size:14px;letter-spacing:1px;text-transform:uppercase;">Reply to ${name}</a>
+            <a href="mailto:${email}?subject=${encodeURIComponent(`Re: Contact Form: Message from ${name}`)}" style="display:inline-block;background:#F5C800;color:#1A1400;font-weight:700;text-decoration:none;padding:14px 32px;border-radius:8px;font-size:14px;letter-spacing:1px;text-transform:uppercase;">Reply to ${name}</a>
           </div>
         </td></tr>
         <!-- Footer -->
