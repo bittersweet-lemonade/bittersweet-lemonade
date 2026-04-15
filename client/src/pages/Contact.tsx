@@ -43,8 +43,10 @@ export default function Contact() {
     <>
       <Meta
         title="Contact Us"
-        description="Get in touch with Bittersweet Lemonade. Questions about membership, partnerships, events, or just want to say hello — we'd love to hear from you."
+        description="Reach out to Bittersweet Lemonade — for membership, sponsorship, performance opportunities, or general inquiries about our Vancouver, BC charity concerts."
+        image="https://res.cloudinary.com/dx8zth9lo/image/upload/f_auto,q_auto,w_1200,h_630,c_fill,g_auto/v1776052829/bittersweet-lemonade/2026/03/DSC_6350.jpg"
         path="/contact"
+        breadcrumb="Contact Us"
       />
 
       <div className="page-header">

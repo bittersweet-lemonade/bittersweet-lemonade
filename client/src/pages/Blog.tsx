@@ -32,8 +32,10 @@ export default function Blog() {
     <>
       <Meta
         title="News"
-        description="Events, performances, and updates from the Bittersweet Lemonade Association. Read about our charity concerts, fundraising milestones, and community highlights."
+        description="Concert recaps, fundraising milestones, and community updates from Bittersweet Lemonade — Vancouver, BC's youth charity music association."
+        image="https://res.cloudinary.com/dx8zth9lo/image/upload/f_auto,q_auto,w_1200,h_630,c_fill,g_auto/v1776052809/bittersweet-lemonade/2025/10/DSC07731.jpg"
         path="/blog"
+        breadcrumb="News"
       />
 
       <div className="page-header">

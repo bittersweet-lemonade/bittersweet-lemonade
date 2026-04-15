@@ -194,7 +194,7 @@ app.post('/api/contact', async (req: Request<object, object, ContactBody>, res: 
         <tr><td style="background:#1A1400;padding:24px 40px;text-align:center;border-radius:0 0 12px 12px;">
           <div style="font-size:12px;color:#7A6B1A;line-height:1.8;">
             <a href="https://bittersweet-lemonade.com" style="color:#F5C800;text-decoration:none;font-weight:600;">bittersweet-lemonade.com</a><br/>
-            Richmond, BC &nbsp;·&nbsp; Youth Music Society
+            Vancouver, BC &nbsp;·&nbsp; Youth Music Society
           </div>
         </td></tr>
       </table>
@@ -295,7 +295,7 @@ app.post('/api/newsletter', async (req: Request<object, object, NewsletterBody>,
           <div style="height:1px;background:#2A2000;margin-bottom:20px;"></div>
           <div style="font-size:12px;color:#7A6B1A;line-height:1.8;">
             <a href="https://bittersweet-lemonade.com" style="color:#F5C800;text-decoration:none;font-weight:600;">bittersweet-lemonade.com</a><br/>
-            Richmond, BC &nbsp;·&nbsp; Youth Music Society<br/>
+            Vancouver, BC &nbsp;·&nbsp; Youth Music Society<br/>
             <span style="font-size:11px;">You're receiving this because you subscribed at bittersweet-lemonade.com</span>
           </div>
         </td></tr>

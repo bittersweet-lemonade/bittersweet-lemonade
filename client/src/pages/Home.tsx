@@ -151,22 +151,23 @@ function Reveal({ children, delay = 0, className = '' }: RevealProps) {
 
 function SchemaOrg() {
   useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'schema-org-org';
-    script.text = JSON.stringify({
+    // Organization
+    const orgScript = document.createElement('script');
+    orgScript.type = 'application/ld+json';
+    orgScript.id = 'schema-org-org';
+    orgScript.text = JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'Organization',
       name: 'Bittersweet Lemonade Association',
       url: 'https://www.bittersweet-lemonade.com',
       logo: 'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052842/bittersweet-lemonade/2025/02/BittersweetLemonadeLogopng.png',
       description:
-        'A student-led nonprofit organization dedicated to bringing youth together through music and charity concerts, donating proceeds to the Richmond Hospital Foundation.',
+        'Student-led nonprofit organizing annual charity concerts in Vancouver, BC, donating proceeds to the Richmond Hospital Foundation.',
       foundingDate: '2021',
       sameAs: ['https://www.instagram.com/bittersweetlemonade.official/'],
       address: {
         '@type': 'PostalAddress',
-        addressLocality: 'Richmond',
+        addressLocality: 'Vancouver',
         addressRegion: 'BC',
         addressCountry: 'CA',
       },
@@ -174,8 +175,28 @@ function SchemaOrg() {
       knowsAbout: ['Music', 'Charity', 'Youth Programs', 'Community Events', 'Concerts'],
     });
     document.getElementById('schema-org-org')?.remove();
-    document.head.appendChild(script);
-    return () => { document.getElementById('schema-org-org')?.remove(); };
+    document.head.appendChild(orgScript);
+
+    // WebSite — enables Google to understand site structure / sitelinks
+    const siteScript = document.createElement('script');
+    siteScript.type = 'application/ld+json';
+    siteScript.id = 'schema-org-website';
+    siteScript.text = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'Bittersweet Lemonade',
+      url: 'https://www.bittersweet-lemonade.com',
+      description: 'Student-led nonprofit in Vancouver, BC — annual charity concerts donating to the Richmond Hospital Foundation.',
+      publisher: { '@type': 'Organization', name: 'Bittersweet Lemonade Association' },
+      inLanguage: 'en-CA',
+    });
+    document.getElementById('schema-org-website')?.remove();
+    document.head.appendChild(siteScript);
+
+    return () => {
+      document.getElementById('schema-org-org')?.remove();
+      document.getElementById('schema-org-website')?.remove();
+    };
   }, []);
   return null;
 }
@@ -184,7 +205,8 @@ export default function Home() {
   return (
     <>
       <Meta
-        description="Bittersweet Lemonade is a student-led nonprofit in Richmond, BC bringing youth together through charity concerts and music events, donating to the Richmond Hospital Foundation."
+        description="Student-led nonprofit in Vancouver, BC — annual charity concerts showcasing youth musicians, with all proceeds donated to the Richmond Hospital Foundation."
+        image="https://res.cloudinary.com/dx8zth9lo/image/upload/f_auto,q_auto,w_1200,h_630,c_fill,g_auto/v1776052836/bittersweet-lemonade/2026/03/DSC_6354.jpg"
         path="/"
       />
       <SchemaOrg />

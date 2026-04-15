@@ -22,8 +22,10 @@ export default function About() {
     <>
       <Meta
         title="Our Story"
-        description="Bittersweet Lemonade was founded in 2021 to bring people together through music. Learn about our journey from a pandemic-era idea to a community nonprofit raising funds for the Richmond Hospital Foundation."
+        description="Founded in 2021, Bittersweet Lemonade has grown from a pandemic-era idea into an annual summer concert series in Vancouver, BC — raising over $20,000 for the Richmond Hospital Foundation."
+        image="https://res.cloudinary.com/dx8zth9lo/image/upload/f_auto,q_auto,w_1200,h_630,c_fill,g_auto/v1776052964/bittersweet-lemonade/2026/03/DSC_6347.jpg"
         path="/our-story"
+        breadcrumb="Our Story"
       />
 
       <div className="page-header">

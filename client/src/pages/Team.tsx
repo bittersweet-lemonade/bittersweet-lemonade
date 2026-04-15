@@ -53,8 +53,10 @@ export default function Team() {
     <>
       <Meta
         title="Our Team"
-        description="Meet the student leaders and advisors behind Bittersweet Lemonade — a passionate group dedicated to music, community, and charity in Richmond, BC."
+        description="Meet the student volunteers and advisors who run Bittersweet Lemonade — organizing concerts, managing sponsorships, and giving youth a stage in Vancouver, BC."
+        image="https://res.cloudinary.com/dx8zth9lo/image/upload/f_auto,q_auto,w_1200,h_630,c_fill,g_auto/v1776052811/bittersweet-lemonade/2025/10/DSC07740.jpg"
         path="/team"
+        breadcrumb="Our Team"
       />
 
       <div className="page-header">
