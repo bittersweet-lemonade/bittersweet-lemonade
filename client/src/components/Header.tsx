@@ -53,6 +53,7 @@ export default function Header() {
           <NavLink to="/" end className={navLink}>Home</NavLink>
           <NavLink to="/our-story" className={navLink}>Our Story</NavLink>
           <NavLink to="/blog" className={navLink}>News</NavLink>
+          <NavLink to="/gallery" className={navLink}>Gallery</NavLink>
           <NavLink to="/team" className={navLink}>Our Team</NavLink>
           <NavLink to="/contact" className={navLink}>Contact</NavLink>
         </nav>
@@ -87,6 +88,7 @@ export default function Header() {
             <NavLink to="/" end className={mobileNavLink}>Home</NavLink>
             <NavLink to="/our-story" className={mobileNavLink}>Our Story</NavLink>
             <NavLink to="/blog" className={mobileNavLink}>News</NavLink>
+            <NavLink to="/gallery" className={mobileNavLink}>Gallery</NavLink>
             <NavLink to="/team" className={mobileNavLink}>Our Team</NavLink>
             <NavLink to="/contact" className={mobileNavLink}>Contact</NavLink>
           </div>

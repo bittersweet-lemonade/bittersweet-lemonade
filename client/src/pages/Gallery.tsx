@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback } from 'react';
+import Meta from '../components/Meta';
 
 interface GalleryImage {
   id: number;
@@ -57,6 +58,13 @@ export default function Gallery() {
 
   return (
     <>
+      <Meta
+        title="Gallery"
+        description="Photos from Bittersweet Lemonade's annual charity concerts, performances, and community events in Vancouver, BC."
+        image="https://res.cloudinary.com/dx8zth9lo/image/upload/f_auto,q_auto,w_1200,h_630,c_fill,g_auto/v1776052836/bittersweet-lemonade/2026/03/DSC_6354.jpg"
+        path="/gallery"
+        breadcrumb="Gallery"
+      />
       <div className="page-header">
         <h1>Gallery</h1>
         <p>Photos from our performances, events, and more</p>

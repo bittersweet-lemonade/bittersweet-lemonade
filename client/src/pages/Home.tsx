@@ -26,14 +26,23 @@ const UPCOMING_EVENT = {
   link: null as string | null, // set to ticket/RSVP URL once available
 };
 
-interface Stat { value: string; label: string; }
+interface StatDef { label: string; numeric: number; prefix: string; suffix: string; comma?: boolean; }
 interface WhatWeDo { image: string; title: string; desc: string; }
 
-const STATS: Stat[] = [
-  { value: '$22,000+', label: 'Funds Raised & Donated' },
-  { value: '40+',      label: 'Volunteer Members' },
-  { value: '20+',      label: 'Sponsorships' },
-  { value: '300+',     label: 'Attendees' },
+const STATS: StatDef[] = [
+  { label: 'Funds Raised & Donated', numeric: 22000, prefix: '$', suffix: '+', comma: true },
+  { label: 'Volunteer Members',       numeric: 40,    prefix: '',  suffix: '+' },
+  { label: 'Sponsorships',            numeric: 20,    prefix: '',  suffix: '+' },
+  { label: 'Attendees',               numeric: 300,   prefix: '',  suffix: '+' },
+];
+
+const GALLERY_PREVIEW = [
+  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052809/bittersweet-lemonade/2025/10/DSC07731.jpg',
+  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052811/bittersweet-lemonade/2025/10/DSC07740.jpg',
+  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052965/bittersweet-lemonade/2026/03/DSC_6348.jpg',
+  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052828/bittersweet-lemonade/2026/03/DSC_6349.jpg',
+  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052831/bittersweet-lemonade/2026/03/DSC_6351.jpg',
+  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052812/bittersweet-lemonade/2025/10/DSC07742.jpg',
 ];
 
 const WHAT_WE_DO: WhatWeDo[] = [
@@ -145,6 +154,53 @@ function Reveal({ children, delay = 0, className = '' }: RevealProps) {
       style={delay ? { transitionDelay: `${delay}ms` } : {}}
     >
       {children}
+    </div>
+  );
+}
+
+function AnimatedStat({ stat, delay = 0 }: { stat: StatDef; delay?: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } },
+      { threshold: 0.2 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!visible) return;
+    const duration = 1400;
+    const startTime = performance.now();
+    const animate = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(eased * stat.numeric));
+      if (progress < 1) requestAnimationFrame(animate);
+      else setCount(stat.numeric);
+    };
+    requestAnimationFrame(animate);
+  }, [visible, stat.numeric]);
+
+  const formatted = stat.comma ? count.toLocaleString() : count.toString();
+
+  return (
+    <div
+      ref={ref}
+      className={`reveal${visible ? ' revealed' : ''}`}
+      style={delay ? { transitionDelay: `${delay}ms` } : {}}
+    >
+      <div className="text-[2.5rem] font-black text-lemon mb-[0.4rem]">
+        {stat.prefix}{formatted}{stat.suffix}
+      </div>
+      <div className="text-[0.82rem] font-bold uppercase tracking-[0.06em] text-white/70">{stat.label}</div>
     </div>
   );
 }
@@ -300,14 +356,39 @@ export default function Home() {
           </Reveal>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {STATS.map((stat, i) => (
-              <Reveal key={stat.label} delay={i * 100}>
-                <div>
-                  <div className="text-[2.5rem] font-black text-lemon mb-[0.4rem]">{stat.value}</div>
-                  <div className="text-[0.82rem] font-bold uppercase tracking-[0.06em] text-white/70">{stat.label}</div>
-                </div>
+              <AnimatedStat key={stat.label} stat={stat} delay={i * 100} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery preview */}
+      <section className="py-20 px-[4vw] bg-cream">
+        <div className="max-w-[1200px] mx-auto">
+          <Reveal>
+            <div className="section-header">
+              <h2>See the Moments</h2>
+            </div>
+          </Reveal>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-10">
+            {GALLERY_PREVIEW.map((src, i) => (
+              <Reveal key={src} delay={i * 60}>
+                <Link to="/gallery" className="block overflow-hidden aspect-square bg-lemon-mid border-[1.5px] border-brand-border group">
+                  <img
+                    src={cl(src)}
+                    alt={`Concert photo ${i + 1}`}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-all duration-500 group-hover:scale-[1.08] group-hover:opacity-90"
+                  />
+                </Link>
               </Reveal>
             ))}
           </div>
+          <Reveal>
+            <div className="text-center">
+              <Link to="/gallery" className="btn-primary">View Full Gallery</Link>
+            </div>
+          </Reveal>
         </div>
       </section>
 
