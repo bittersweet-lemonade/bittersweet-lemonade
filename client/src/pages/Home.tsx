@@ -6,16 +6,16 @@ const cl = (url: string) => url.replace('/upload/', '/upload/f_auto,q_auto/');
 
 const HERO_IMAGES = [
   'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052836/bittersweet-lemonade/2026/03/DSC_6354.jpg',
+  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052807/bittersweet-lemonade/2025/10/DSC07724.jpg',
   'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052809/bittersweet-lemonade/2025/10/DSC07731.jpg',
-  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052811/bittersweet-lemonade/2025/10/DSC07740.jpg',
-  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052812/bittersweet-lemonade/2025/10/DSC07742.jpg',
-  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052964/bittersweet-lemonade/2026/03/DSC_6347.jpg',
-  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052965/bittersweet-lemonade/2026/03/DSC_6348.jpg',
-  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052828/bittersweet-lemonade/2026/03/DSC_6349.jpg',
+  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052815/bittersweet-lemonade/2025/10/Bittersweet-Lemonade-Cheque-Presentation.jpg',
+  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052961/bittersweet-lemonade/2025/10/DSC04359.jpg',
   'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052829/bittersweet-lemonade/2026/03/DSC_6350.jpg',
-  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052831/bittersweet-lemonade/2026/03/DSC_6351.jpg',
-  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052832/bittersweet-lemonade/2026/03/DSC_6352.jpg',
+  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052836/bittersweet-lemonade/2026/03/IMG_1554.jpg',
+  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052824/bittersweet-lemonade/2025/07/IMG_8586.jpg',
+  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052824/bittersweet-lemonade/2025/07/shot-2025.07.03-18.35.32.jpg',
 ];
+const UNIQUE_HERO_IMAGES = Array.from(new Set(HERO_IMAGES));
 
 // Set to null to hide the banner when no upcoming event
 const UPCOMING_EVENT = {
@@ -76,7 +76,7 @@ function HeroSlideshow() {
   const startTimer = () => {
     timer.current = setInterval(() => {
       setCurrent(c => {
-        const next = (c + 1) % HERO_IMAGES.length;
+        const next = (c + 1) % UNIQUE_HERO_IMAGES.length;
         setLoaded(s => new Set([...s, next]));
         return next;
       });
@@ -97,7 +97,7 @@ function HeroSlideshow() {
 
   return (
     <>
-      {HERO_IMAGES.map((src, i) => (
+      {UNIQUE_HERO_IMAGES.map((src, i) => (
         <div
           key={src}
           className="hero-slide"
@@ -109,7 +109,7 @@ function HeroSlideshow() {
       ))}
       <div className="absolute inset-0 bg-ink/55 pointer-events-none" />
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-[2]">
-        {HERO_IMAGES.map((_, i) => (
+        {UNIQUE_HERO_IMAGES.map((_, i) => (
           <button
             key={i}
             className={`w-[10px] h-[10px] rounded-full border-2 p-0 cursor-pointer transition-all duration-200 ${
