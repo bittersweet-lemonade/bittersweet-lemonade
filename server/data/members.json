@@ -9,18 +9,18 @@
   },
   {
     "id": 2,
-    "name": "Oscar Liu",
-    "role": "Vice President",
-    "image": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052819/bittersweet-lemonade/2025/07/H-edited.jpg",
-    "bio": "A senior at St. George's School, Oscar is excited to extend his umbrella of musical passion to everyone around him. Playing a variety of saxophones and a diverse set of other instruments, he enjoys music as a creative outlet of expression and purpose. Outside of music, Oscar can be found in the lab mixing together dangerous chemicals, rowing, or taking long walks on the beach.",
+    "name": "James Wang",
+    "role": "Event Coordinator",
+    "image": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776061804/bittersweet-lemonade/2025/07/IMG_8586-1.jpg",
+    "bio": "James, a senior at West Point Grey Academy, is passionate about bringing people together over music. In addition to being a piano and trumpet player, James enjoys playing golf, tennis, and watching the Canucks lose.",
     "type": "executive"
   },
   {
     "id": 3,
-    "name": "Ethan Ho",
-    "role": "Vice President",
-    "image": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776061796/bittersweet-lemonade/2025/07/2820b86a4e9d99bb3369da1c30935892-1.jpg",
-    "bio": "Ethan Ho is a senior at West Point Grey Academy who is excited to help spread his love for music with the community. In his free time, he enjoys playing the flute.",
+    "name": "Charles Wang",
+    "role": "Director of Communications",
+    "image": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776061812/bittersweet-lemonade/2025/07/large_user_3532843_79.jpg",
+    "bio": "Charles is a passionate music enthusiast and a dedicated violinist. A senior at West Point Grey Academy, he is committed to enriching his community with music from various cultures and genres. In his free time, he plays the violin and participates in math competitions.",
     "type": "executive"
   },
   {
@@ -33,14 +33,22 @@
   },
   {
     "id": 5,
-    "name": "Charles Wang",
-    "role": "Director of Communications",
-    "image": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776061812/bittersweet-lemonade/2025/07/large_user_3532843_79.jpg",
-    "bio": "Charles is a passionate music enthusiast and a dedicated violinist. A senior at West Point Grey Academy, he is committed to enriching his community with music from various cultures and genres. In his free time, he plays the violin and participates in math competitions.",
+    "name": "Gabriel Zhu",
+    "role": "Director of Music",
+    "image": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1786242908/bittersweet-lemonade/team/gabriel.png",
+    "bio": "Gabriel is passionate about all forms of performance. Dedicated to piano, composition, and dance, he composed the Bittersweet Lemonade Theme Song. He loves inspiring others with the arts.",
     "type": "executive"
   },
   {
     "id": 6,
+    "name": "James Xu",
+    "role": "Director of IT",
+    "image": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1786242909/bittersweet-lemonade/team/james-xu.png",
+    "bio": "James Xu is the Director of IT for Bittersweet Lemonade.",
+    "type": "executive"
+  },
+  {
+    "id": 7,
     "name": "Bella Li",
     "role": "Director of Marketing",
     "image": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052822/bittersweet-lemonade/2025/07/bella-li.jpg",
@@ -48,7 +56,7 @@
     "type": "executive"
   },
   {
-    "id": 7,
+    "id": 8,
     "name": "Elizabeth Feng",
     "role": "Director of Volunteers",
     "image": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776061805/bittersweet-lemonade/2025/07/WechatIMG82-1.jpg",
@@ -56,7 +64,7 @@
     "type": "executive"
   },
   {
-    "id": 8,
+    "id": 9,
     "name": "Felix Bian",
     "role": "Director of Volunteers",
     "image": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776061798/bittersweet-lemonade/2025/07/512197216_4137464666497126_6753936913642937167_n-edited.jpg",
@@ -64,15 +72,23 @@
     "type": "executive"
   },
   {
-    "id": 9,
-    "name": "James Wang",
-    "role": "Event Coordinator",
-    "image": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776061804/bittersweet-lemonade/2025/07/IMG_8586-1.jpg",
-    "bio": "James, a senior at West Point Grey Academy, is passionate about bringing people together over music. In addition to being a piano and trumpet player, James enjoys playing golf, tennis, and watching the Canucks lose.",
-    "type": "executive"
+    "id": 10,
+    "name": "Oscar Liu",
+    "role": "Advisor",
+    "image": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052819/bittersweet-lemonade/2025/07/H-edited.jpg",
+    "bio": "Oscar Liu is now a university student and is excited to extend his umbrella of musical passion to everyone around him. Playing a variety of saxophones and a diverse set of other instruments, he enjoys music as a creative outlet of expression and purpose. Outside of music, Oscar can be found in the lab mixing together dangerous chemicals, rowing, or taking long walks on the beach.",
+    "type": "advisory"
   },
   {
-    "id": 10,
+    "id": 11,
+    "name": "Ethan Ho",
+    "role": "Advisor",
+    "image": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776061796/bittersweet-lemonade/2025/07/2820b86a4e9d99bb3369da1c30935892-1.jpg",
+    "bio": "Ethan Ho is now a university student who is excited to help spread his love for music with the community. In his free time, he enjoys playing the flute.",
+    "type": "advisory"
+  },
+  {
+    "id": 12,
     "name": "Tara Li",
     "role": "Advisor",
     "image": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776117801/tara-li_k6k4ro.webp",
@@ -80,7 +96,7 @@
     "type": "advisory"
   },
   {
-    "id": 11,
+    "id": 13,
     "name": "Justin Li",
     "role": "Advisor",
     "image": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052820/bittersweet-lemonade/2025/06/E-edited.jpg",
@@ -88,7 +104,7 @@
     "type": "advisory"
   },
   {
-    "id": 12,
+    "id": 14,
     "name": "Anya Li",
     "role": "Advisor",
     "image": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776061795/bittersweet-lemonade/2025/07/154db1c01cfb98dc607546b5bff77adc.jpg",
@@ -96,7 +112,7 @@
     "type": "advisory"
   },
   {
-    "id": 13,
+    "id": 15,
     "name": "Tony Zhang",
     "role": "Advisor",
     "image": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052821/bittersweet-lemonade/2025/06/F.jpg",
