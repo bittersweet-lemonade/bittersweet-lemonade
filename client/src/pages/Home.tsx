@@ -20,9 +20,9 @@ const UNIQUE_HERO_IMAGES = Array.from(new Set(HERO_IMAGES));
 // Set to null to hide the banner when no upcoming event
 const UPCOMING_EVENT = {
   label: 'Coming Soon',
-  name: 'The 6th Summer Lawn Concert in Lavenderland',
-  date: 'August 1st, 2026',
-  cta: 'Stay Tuned for more info',
+  name: 'Stay Tuned for Our Next Charity Concert',
+  date: 'TBD',
+  cta: 'More Info',
   link: null as string | null, // set to ticket/RSVP URL once available
 };
 
