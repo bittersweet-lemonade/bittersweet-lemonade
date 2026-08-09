@@ -23,7 +23,7 @@ function MemberCard({ member }: { member: Member }) {
                 src={member.image.replace('/upload/', '/upload/f_auto,q_auto/')}
                 alt={member.name}
                 className={`w-full h-full block ${member.name === 'James Xu'
-                  ? 'object-contain scale-[0.86] translate-y-3'
+                  ? 'object-cover object-[center_30%]'
                   : 'object-cover'
                 }`}
               />
