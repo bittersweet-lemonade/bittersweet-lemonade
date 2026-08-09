@@ -22,7 +22,10 @@ function MemberCard({ member }: { member: Member }) {
             ? <img
                 src={member.image.replace('/upload/', '/upload/f_auto,q_auto/')}
                 alt={member.name}
-                className="w-full h-full object-cover block"
+                className={`w-full h-full block ${member.name === 'James Xu'
+                  ? 'object-contain scale-[0.86] translate-y-3'
+                  : 'object-cover'
+                }`}
               />
             : <span className="text-[3.5rem] font-black text-ink">{member.name.charAt(0)}</span>
           }
