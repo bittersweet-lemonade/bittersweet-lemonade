@@ -12,8 +12,6 @@ const HERO_IMAGES = [
   'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052961/bittersweet-lemonade/2025/10/DSC04359.jpg',
   'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052829/bittersweet-lemonade/2026/03/DSC_6350.jpg',
   'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052836/bittersweet-lemonade/2026/03/IMG_1554.jpg',
-  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052824/bittersweet-lemonade/2025/07/IMG_8586.jpg',
-  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052824/bittersweet-lemonade/2025/07/shot-2025.07.03-18.35.32.jpg',
 ];
 const UNIQUE_HERO_IMAGES = Array.from(new Set(HERO_IMAGES));
 
