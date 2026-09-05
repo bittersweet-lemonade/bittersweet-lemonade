@@ -5,42 +5,24 @@ interface GalleryImage {
   id: number;
   src: string;
   alt: string;
-  category: string;
 }
-
-interface Category {
-  key: string;
-  label: string;
-}
-
-const CATEGORIES: Category[] = [
-  { key: 'all',          label: 'All' },
-  { key: '2026-concert', label: '2026 Concert' },
-];
 
 export default function Gallery() {
   const [images, setImages]           = useState<GalleryImage[]>([]);
-  const [filtered, setFiltered]       = useState<GalleryImage[]>([]);
-  const [category, setCategory]       = useState('all');
   const [loading, setLoading]         = useState(true);
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
 
   useEffect(() => {
     fetch('/api/gallery')
       .then(r => r.json())
-      .then((data: GalleryImage[]) => { setImages(data); setFiltered(data); setLoading(false); })
+      .then((data: GalleryImage[]) => { setImages(data); setLoading(false); })
       .catch(() => setLoading(false));
   }, []);
 
-  useEffect(() => {
-    setFiltered(category === 'all' ? images : images.filter(img => img.category === category));
-    setLightboxIdx(null);
-  }, [category, images]);
-
   const openLightbox  = (idx: number) => setLightboxIdx(idx);
   const closeLightbox = () => setLightboxIdx(null);
-  const prevImage = useCallback(() => setLightboxIdx(i => i === null ? null : (i - 1 + filtered.length) % filtered.length), [filtered.length]);
-  const nextImage = useCallback(() => setLightboxIdx(i => i === null ? null : (i + 1) % filtered.length), [filtered.length]);
+  const prevImage = useCallback(() => setLightboxIdx(i => i === null ? null : (i - 1 + images.length) % images.length), [images.length]);
+  const nextImage = useCallback(() => setLightboxIdx(i => i === null ? null : (i + 1) % images.length), [images.length]);
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -70,23 +52,6 @@ export default function Gallery() {
       <section className="py-20 px-[4vw]">
         <div className="max-w-[1200px] mx-auto">
 
-          {/* Filters */}
-          <div className="flex gap-2 flex-wrap justify-center mb-10">
-            {CATEGORIES.map(cat => (
-              <button
-                key={cat.key}
-                onClick={() => setCategory(cat.key)}
-                className={`py-[0.5em] px-[1.4em] text-[0.78rem] font-bold uppercase tracking-[0.08em] border-2 cursor-pointer transition-all duration-200 ${
-                  category === cat.key
-                    ? 'bg-lemon text-ink border-lemon-dark'
-                    : 'bg-transparent text-ink-muted border-brand-border hover:bg-lemon-mid hover:border-lemon-dark hover:text-ink'
-                }`}
-              >
-                {cat.label}
-              </button>
-            ))}
-          </div>
-
           {loading ? (
             <div className="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-3">
               {Array.from({ length: 12 }).map((_, i) => (
@@ -95,7 +60,7 @@ export default function Gallery() {
             </div>
           ) : (
             <div className="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-3">
-              {filtered.map((img, idx) => (
+              {images.map((img, idx) => (
                 <div
                   key={img.id}
                   className="overflow-hidden aspect-square cursor-pointer bg-lemon-mid border-[1.5px] border-brand-border group"
@@ -115,7 +80,7 @@ export default function Gallery() {
       </section>
 
       {/* Lightbox */}
-      {lightboxIdx !== null && filtered[lightboxIdx] && (
+      {lightboxIdx !== null && images[lightboxIdx] && (
         <div
           className="fixed inset-0 bg-[rgba(26,20,0,0.97)] z-[1000] flex items-center justify-center"
           onClick={closeLightbox}
@@ -134,8 +99,8 @@ export default function Gallery() {
           </button>
           <img
             className="max-w-[90vw] max-h-[90vh] object-contain border-2 border-lemon"
-            src={filtered[lightboxIdx].src}
-            alt={filtered[lightboxIdx].alt}
+            src={images[lightboxIdx].src}
+            alt={images[lightboxIdx].alt}
             onClick={e => e.stopPropagation()}
           />
           <button

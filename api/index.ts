@@ -27,7 +27,6 @@ interface GalleryImage {
   id: number;
   src: string;
   alt: string;
-  category: string;
 }
 
 interface ContactBody {
@@ -64,12 +63,8 @@ app.get('/api/posts/:slug', (req: Request, res: Response) => {
 });
 
 // ── Gallery ────────────────────────────────────────────
-app.get('/api/gallery', (req: Request, res: Response) => {
+app.get('/api/gallery', (_req: Request, res: Response) => {
   const gallery = readData<GalleryImage[]>('gallery.json');
-  const { category } = req.query;
-  if (category && category !== 'all') {
-    return res.json(gallery.filter(img => img.category === category));
-  }
   res.json(gallery);
 });
 
