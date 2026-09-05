@@ -40,28 +40,6 @@ interface NewsletterBody {
   email?: string;
 }
 
-// Public Drive thumbnails keep the gallery fast while preserving the full-resolution
-// photo when a visitor opens it in the lightbox. Repeated file names in the first
-// shared folder were removed before this list was added.
-const RECENT_CONCERT_PHOTO_IDS = [
-  ...'1YI3yf6dtFv5eSISJdDWvYSB5Mv7fDKBw 17BK-2Cl7XApkSF1voD_53AnySaKuqj28 1n76RMfJBM7TNU8sR80poOtUAjc2rgo5G 1qGGUl7sdjXPcvoHYgg9NP33a9uJIs1za 1E4IJutsJe90ixEcZH4zYSPyHyOmFTSV7 1gcUlFUNaTXsqicgPRDsmZWLPXhXQNV9f 16AcFNfntsKdo0Y0HMdHxHC1Iw5v2ge0d 1Au68T5JUIq00uduMx5DumlRjeseYdRIA 1PcECLqr0EZdicdLSPeqYq8D1RXLVKcLT 1iSd-ioo52fAHkY1_zjPn9MgvhSpZw6Md 1DBMmu7EHqEzONNsoH44XDvcNPTOfU6CE 1YJZoixLC4Z0cff_OXRMdIM7wlodsOZFx 1VzCs6DaEFWg_yNx8fodUG8qZKmEyLlvI 1ZPiF1f3yfPsiH3ZjVV59Y_jpffWtkq68 1d3xmJPzY6AWYaRRUcoBkEqMnuVCZULNe 1EzeoeQras3kxNXHMJ8DjcQDwJuyEnTSW 1H8GkQoIBzuY1IWoXRG_fkE2j9swlZkq4 1IXTVd9SCrrDeUUwBGLtd0eYuxfpn0nrw 1LDNIO-z8fU9D8zRFMpendGoMbrwYnvf6 1ystRPIehcroNFZfsAU5Euf0E2t92wkOI 18xpKlZJTTgZDaH75Ew3wRZt3F02XC5K3 1Yz_85VcE5luDjXaUGIa6mIolyVN6VBMu 1X8Hird-OoP8RSVeevguaAkdY_OF94aho 1d6yhJkiygDngHytM2_TI_xbwW2c7jnvn 1FUQCkgPuZvCwsLCUhRsnIMd_1n8UORGt 11nbuqNlkSP5GeuZA_arx7MPbbb5cmVzr 1Fbz6DnQ-lDOL_9CDVCTSmSjucZCAHTM5 1tynQRyKVC5Q3Lqy-4FaXnzZJivCd7QQX 1lz2kDdxK-0OYVd7T8AWNH763IY31Nnlp 1_IPKd9nijAXTRi67CfVK0l6b38g6EpWW 1H19MVj_eFgHy61qigcJWRu_WR7fEgYiG 1f34QsdPXLGBeFR1Jv2vcHsTAdawNfDxr 12fWMTAmE79yrzJ356HyHmnBmQEaXkLnZ 1nlh0yhDk82avb8sXDwGHONOCofc0jLQu 1syxqzbsKV12qUSs5sCXFjiDVy_QAIPOj 1QzLWrl2FAXNl1EkN5KQZ4epHUebGoREl 1sIT6bkKeBuQzhwG61eoVpmzPvTuFXfXJ 1UUpMZtpsPl1nNrHhRsW7_AWgrQI5Jge2 1clGPVPwS0Jb8gXN__RKkcGyG01PDzv6Z 1bpL0roCUk8841P5Vuo6t76M0xJd_oUT3 1mQixvcQMYUAW-vKtwxCiG0pOqtid0iwH 1fcSWVC_R5xW2z3IJpCiJnD1pVoAYEbAL 1vLtk4X07GyLlL6LcuA7jif1pwnesTIeO 1zNNgIE1UM65Ef2ezvG46kJsssRiR7yLL'.split(' '),
-  ...'1JQ1fES0jlIqCnl8Tqw2aOBfdWTSL-Tsu 1c7QK-1w1k0lV16dxJcyx9lr3a5uR88xB 16_cMPKUo0MIV16afaq3M5plHj1Y6sUSJ 1cj2eCus32WYWuQtQWYk5lmVupC1iwFIa 1XGet-XDrXKj0nAQNIWz2mleATjD-5ave 1iIX90jQ1t6R0-t-YopTpCvaAFs8tLNil 1wTAbTyFofvOosY6HH0W71AvhEk9LTMBH 1O06VgPnAOKRoIEuFgpupli65nHf-lzQt 1U3KKHXGVX33NVHuDnYbbxvoPENx0QNBM 10Dslb8846byvzBRoco7-Y8m848NrL_ct 1uNsplQkard6WWu__WbEyheZzU1KisZe9 1chn_44Vw_NYy0IVvKwsVpltdR0wSoDQr 1tP4Q41VYJxGrm2QmgxnCJSQNNovMz9Vk 1QfYsUs2C5Mt5YYAz-fCqT_JFFkFgWX5H 1v3aDdwhj3_MFX6a5k5R2Cv_Hq8rdGabB 1TvAYOcZ_GX3UhkdqfRF5_hHl2pfJqUBd 1oByJ7aFMxBvgLNNG4LQrL7y4CG7gyNtR 1r5NflxnAlTwzdllyUjRJEPGMDPlNUWGw 1-AIhGDF3B8aVRCYkl-7PRwuP2MARYTaJ 16jW9jhhPLP_5diLqXWZid6CE8o3hNExS 1bm0iTb6a6OsWA2immkcv6zDzTWNWkZwJ 1FUZNZrVAvayLR91eHsyFQV6YCx1LsZww 1W0ZFTBASdVk3t0AAtUYHIXy2POeCmsFI 1rSd-fklYtiNX3bILFWv-TJbBN3CaqUla 1pNXT9L6XKapeDIDHNrJdTxm3j9Z1eTkv 1JDu6NTffNi45rSSpjqd2QH6uNJ-5SKMI 16ZbJodYHoEs4gdcDtkPG9O2YmPEve4S- 1Dy8thfl-k5J2o3MA8fBkqPjY_dOCH_95 1w5hj0CqgV5c4cVwc0OFNPj_XUfqo1JpF 17KkEcrbMGNfw1idO3HAjJr_YR_bzhlsY 1OCpIxVYiLitG1M94sQQ0Bm8wE8iHhGUz 1ZJFdkqTjyF1uq0EazYgBkCWMluPCVk6n 1mZFIOBmtZ-ENmpiYDYYEwe6BvB366KXB 1KFVuSCixvdJdTZgOXJHzzthr-rcE2L3m 1muVQydnUvqLRFsrtVunjMXzGk8VcPoDG 16FmmiQVMzp7yULnsj3gDqhpamR9KXjqf 1cNV2Io-t__udErpJW-Z3EQl375qgMDIw 16MvTLWVXVHs_Ul82LBp_l3jmvsSse30x 1d6xocAT-cgNcFzQqmvM05C9UasDbMaOO 15XArq9-Xg_Bcmv6WA7frqkJYYy6utS0n 1dIXzKWR_q3SDGoOM-AF2DXs-d-768d6t 1MR2-_Y-cnkWwDDBEhq63eccD6BA3uvRD 1XHKPWdl_hkjQ8hVQCwXn2_xnvvYQaCCX 1pPFE1jXxtAkCBbQ7mK2xw_-FYmk0I5ke 1G5GjKrrsLJMKiEq7_o1hhSCQV65Cm-wW 1xnroASbn47EtS2iCxOywrS5mb2HIRzUx'.split(' '),
-];
-
-const CURATED_RECENT_CONCERT_INDEXES = new Set([
-  0, 4, 6, 7, 16, 18, 20, 21, 28, 30, 31, 33, 34,
-  35, 38, 39, 40, 41, 42, 43, 58, 61, 63, 66, 67, 69,
-]);
-
-const RECENT_CONCERT_IMAGES: GalleryImage[] = RECENT_CONCERT_PHOTO_IDS
-  .filter((_id, index) => CURATED_RECENT_CONCERT_INDEXES.has(index))
-  .map((id, index) => ({
-  id: 100 + index,
-  src: `https://drive.google.com/thumbnail?id=${id}&sz=w1600`,
-  alt: `6th Summer Lawn Concert photo ${index + 1}`,
-  category: '2026-concert',
-  }));
-
 const app = express();
 const PORT = process.env.PORT ?? 3001;
 
@@ -90,7 +68,7 @@ app.get('/api/posts/:slug', (req: Request, res: Response) => {
 
 // ── Gallery ────────────────────────────────────────────
 app.get('/api/gallery', (req: Request, res: Response) => {
-  const gallery = [...RECENT_CONCERT_IMAGES, ...readData<GalleryImage[]>('gallery.json')];
+  const gallery = readData<GalleryImage[]>('gallery.json');
   const { category } = req.query;
   if (category && category !== 'all') {
     return res.json(gallery.filter(img => img.category === category));
