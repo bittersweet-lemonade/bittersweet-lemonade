@@ -14,12 +14,8 @@ interface Category {
 }
 
 const CATEGORIES: Category[] = [
-  { key: 'all',                label: 'All' },
-  { key: 'performance',        label: 'Performances' },
-  { key: 'band',               label: 'Band' },
-  { key: 'events',             label: 'Events' },
-  { key: 'behind-the-scenes',  label: 'Behind the Scenes' },
-  { key: '2026-concert',       label: '2026 Concert' },
+  { key: 'all',          label: 'All' },
+  { key: '2026-concert', label: '2026 Concert' },
 ];
 
 export default function Gallery() {
@@ -62,7 +58,7 @@ export default function Gallery() {
       <Meta
         title="Gallery"
         description="Photos from Bittersweet Lemonade's annual charity concerts, performances, and community events in Vancouver, BC."
-        image="https://res.cloudinary.com/dx8zth9lo/image/upload/f_auto,q_auto,w_1200,h_630,c_fill,g_auto/v1776052836/bittersweet-lemonade/2026/03/DSC_6354.jpg"
+        image="https://drive.google.com/thumbnail?id=1YI3yf6dtFv5eSISJdDWvYSB5Mv7fDKBw&sz=w1600"
         path="/gallery"
         breadcrumb="Gallery"
       />

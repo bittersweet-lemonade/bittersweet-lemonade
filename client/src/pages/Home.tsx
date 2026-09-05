@@ -35,12 +35,12 @@ const STATS: StatDef[] = [
 ];
 
 const GALLERY_PREVIEW = [
-  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052809/bittersweet-lemonade/2025/10/DSC07731.jpg',
-  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052811/bittersweet-lemonade/2025/10/DSC07740.jpg',
-  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052965/bittersweet-lemonade/2026/03/DSC_6348.jpg',
-  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052828/bittersweet-lemonade/2026/03/DSC_6349.jpg',
-  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052831/bittersweet-lemonade/2026/03/DSC_6351.jpg',
-  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052812/bittersweet-lemonade/2025/10/DSC07742.jpg',
+  'https://drive.google.com/thumbnail?id=1YI3yf6dtFv5eSISJdDWvYSB5Mv7fDKBw&sz=w1600',
+  'https://drive.google.com/thumbnail?id=1E4IJutsJe90ixEcZH4zYSPyHyOmFTSV7&sz=w1600',
+  'https://drive.google.com/thumbnail?id=16AcFNfntsKdo0Y0HMdHxHC1Iw5v2ge0d&sz=w1600',
+  'https://drive.google.com/thumbnail?id=1Au68T5JUIq00uduMx5DumlRjeseYdRIA&sz=w1600',
+  'https://drive.google.com/thumbnail?id=1H8GkQoIBzuY1IWoXRG_fkE2j9swlZkq4&sz=w1600',
+  'https://drive.google.com/thumbnail?id=1LDNIO-z8fU9D8zRFMpendGoMbrwYnvf6&sz=w1600',
 ];
 
 const WHAT_WE_DO: WhatWeDo[] = [
