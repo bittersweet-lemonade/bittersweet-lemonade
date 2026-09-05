@@ -19,6 +19,7 @@ const CATEGORIES: Category[] = [
   { key: 'band',               label: 'Band' },
   { key: 'events',             label: 'Events' },
   { key: 'behind-the-scenes',  label: 'Behind the Scenes' },
+  { key: '2026-concert',       label: '2026 Concert' },
 ];
 
 export default function Gallery() {

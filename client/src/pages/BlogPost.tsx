@@ -59,7 +59,7 @@ export default function BlogPost() {
         </Link>
 
         <div className="text-[0.82rem] uppercase tracking-[0.05em] text-lemon-dark font-bold mb-4">
-          {post.category} · {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          {post.category} · {new Date(`${post.date}T12:00:00`).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
         </div>
 
         <h1 className="text-[clamp(2rem,5vw,3.5rem)] mb-6 text-ink">{post.title}</h1>

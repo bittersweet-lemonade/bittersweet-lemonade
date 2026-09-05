@@ -65,7 +65,7 @@ export default function Blog() {
                     )}
                     <div className="p-6">
                       <div className="text-[0.78rem] uppercase tracking-[0.06em] text-lemon-dark font-bold mb-2">
-                        {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                        {new Date(`${post.date}T12:00:00`).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
                       </div>
                       <h3 className="text-[1.1rem] mb-2 leading-[1.3] text-ink">{post.title}</h3>
                       <p className="text-[0.9rem] text-ink-muted mb-4 post-excerpt">{post.excerpt}</p>

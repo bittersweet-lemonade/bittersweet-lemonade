@@ -1,5 +1,15 @@
 [
   {
+    "id": 8,
+    "slug": "6th-summer-lawn-concert-2026",
+    "title": "The 6th Summer Lawn Concert",
+    "excerpt": "Our sixth annual Summer Lawn Concert brought performers, families, and neighbours together in Richmond for an afternoon of live music.",
+    "content": "<p>Our sixth annual Summer Lawn Concert brought performers, families, and neighbours together for an afternoon of live music in Richmond.</p><p>From the first setup to the last round of applause, the day was made by the people who gave their time: the young musicians who performed, the volunteers who kept things moving, and everyone who came out to listen and support the cause.</p><p>Thank you for making another summer concert feel like a real community gathering. We are grateful to share the stage, the lawn, and the day with you.</p>",
+    "date": "2026-08-01",
+    "featuredImage": "https://drive.google.com/thumbnail?id=1YI3yf6dtFv5eSISJdDWvYSB5Mv7fDKBw&sz=w1600",
+    "category": "Events"
+  },
+  {
     "id": 7,
     "slug": "welcome-to-our-new-website",
     "title": "A Fresh Look for Our Website",

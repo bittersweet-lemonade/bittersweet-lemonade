@@ -30,9 +30,9 @@ interface StatDef { label: string; numeric: number; prefix: string; suffix: stri
 interface WhatWeDo { image: string; title: string; desc: string; }
 
 const STATS: StatDef[] = [
-  { label: 'Funds Raised & Donated', numeric: 22000, prefix: '$', suffix: '+', comma: true },
-  { label: 'Volunteer Members',       numeric: 40,    prefix: '',  suffix: '+' },
-  { label: 'Sponsorships',            numeric: 20,    prefix: '',  suffix: '+' },
+  { label: 'Funds Raised & Donated', numeric: 27000, prefix: '$', suffix: '+', comma: true },
+  { label: 'Volunteer Members',       numeric: 50,    prefix: '',  suffix: '+' },
+  { label: 'Sponsorships',            numeric: 30,    prefix: '',  suffix: '+' },
   { label: 'Attendees',               numeric: 300,   prefix: '',  suffix: '+' },
 ];
 

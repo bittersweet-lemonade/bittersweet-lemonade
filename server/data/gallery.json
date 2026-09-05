@@ -13,8 +13,6 @@
   { "id": 13, "src": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052820/bittersweet-lemonade/2025/06/E-edited.jpg", "alt": "Performance", "category": "performance" },
   { "id": 14, "src": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052821/bittersweet-lemonade/2025/06/F.jpg", "alt": "Performance", "category": "performance" },
   { "id": 15, "src": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052821/bittersweet-lemonade/2025/06/G.jpg", "alt": "Performance", "category": "performance" },
-  { "id": 16, "src": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052822/bittersweet-lemonade/2025/07/bella-li.jpg", "alt": "Bella Li", "category": "band" },
-  { "id": 17, "src": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052823/bittersweet-lemonade/2025/07/harold-wang.jpg", "alt": "Harold Wang", "category": "band" },
   { "id": 18, "src": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052824/bittersweet-lemonade/2025/07/IMG_8586.jpg", "alt": "Performance", "category": "performance" },
   { "id": 19, "src": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052824/bittersweet-lemonade/2025/07/shot-2025.07.03-18.35.32.jpg", "alt": "Behind the Scenes", "category": "behind-the-scenes" },
   { "id": 20, "src": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052964/bittersweet-lemonade/2026/03/DSC_6347.jpg", "alt": "Live Performance", "category": "performance" },
@@ -26,9 +24,5 @@
   { "id": 26, "src": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052834/bittersweet-lemonade/2026/03/DSC_6353.jpg", "alt": "Live Performance", "category": "performance" },
   { "id": 27, "src": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052836/bittersweet-lemonade/2026/03/DSC_6354.jpg", "alt": "Live Performance", "category": "performance" },
   { "id": 28, "src": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052836/bittersweet-lemonade/2026/03/IMG_1554.jpg", "alt": "Band Photo", "category": "band" },
-  { "id": 29, "src": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052837/bittersweet-lemonade/2026/03/IMG_8488.jpg", "alt": "Performance", "category": "performance" },
-  { "id": 30, "src": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052838/bittersweet-lemonade/2025/02/split-1.png", "alt": "Photo", "category": "behind-the-scenes" },
-  { "id": 31, "src": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052839/bittersweet-lemonade/2025/02/split-2.png", "alt": "Photo", "category": "behind-the-scenes" },
-  { "id": 32, "src": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052839/bittersweet-lemonade/2025/02/split-3.png", "alt": "Photo", "category": "behind-the-scenes" },
-  { "id": 33, "src": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052840/bittersweet-lemonade/2025/02/split-4.png", "alt": "Photo", "category": "behind-the-scenes" }
+  { "id": 29, "src": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052837/bittersweet-lemonade/2026/03/IMG_8488.jpg", "alt": "Performance", "category": "performance" }
 ]

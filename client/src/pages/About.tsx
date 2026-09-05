@@ -14,7 +14,7 @@ const TIMELINE: TimelineEvent[] = [
   { year: '2023', title: '3rd Summer Lawn Concert', venue: 'Southland Heritage Farm', raised: '$4,375' },
   { year: '2024', title: '4th Summer Lawn Concert', venue: 'West Point Grey Community Centre', raised: '$4,400' },
   { year: '2025', title: '5th Summer Lawn Concert', venue: 'Lavenderland', raised: '$4,600+' },
-  { year: '2026', title: '6th Summer Lawn Concert', venue: 'Richmond, BC', raised: null, upcoming: true },
+  { year: '2026', title: '6th Summer Lawn Concert', venue: 'Richmond, BC · August 2026', raised: null },
 ];
 
 export default function About() {
@@ -22,7 +22,7 @@ export default function About() {
     <>
       <Meta
         title="Our Story"
-        description="Founded in 2021, Bittersweet Lemonade has grown from a pandemic-era idea into an annual summer concert series in Vancouver, BC — raising over $20,000 for the Richmond Hospital Foundation."
+        description="Since 2021, Bittersweet Lemonade has brought youth musicians and neighbours together for annual summer concerts, raising over $27,000 for local causes."
         image="https://res.cloudinary.com/dx8zth9lo/image/upload/f_auto,q_auto,w_1200,h_630,c_fill,g_auto/v1776052964/bittersweet-lemonade/2026/03/DSC_6347.jpg"
         path="/our-story"
         breadcrumb="Our Story"
@@ -37,16 +37,16 @@ export default function About() {
       <section className="py-20 px-[4vw]">
         <div className="max-w-[860px] mx-auto">
           <p className="text-[1.15rem] leading-[1.9] text-ink-mid mb-6">
-            It began with a simple idea: to bring people together through the power of music.
+            Bittersweet Lemonade started with a small group of students, a lawn, and a reason to get people out of the house again.
           </p>
           <p className="leading-[1.9] text-ink-mid mb-6">
-            The Bittersweet Lemonade Association is a youth led nonprofit organization. We aim to unite our community, bring people together, and use music and our voices to share warmth and kindness. During the pandemic, which left many people feeling distant from one another, we wanted to create opportunities to reconnect. Hosting summer lawn concerts became our way to do that.
+            During the pandemic, a lot of people felt cut off from one another. We wanted to make something simple and welcoming: an afternoon where friends, families, and neighbours could sit together, hear young musicians play, and feel part of the same community. Summer lawn concerts became our way of doing that.
           </p>
           <p className="leading-[1.9] text-ink-mid mb-6">
-            Since 2021, we have held an annual summer lawn concert. Through our events, people come together to enjoy music outdoors and strengthen their connection to the community. The music concerts showcase the talents of youth, and all proceeds are donated to the Richmond Hospital Foundation. Through this work, Bittersweet Lemonade raises funds and awareness for healthcare needs in our community.
+            We have held a concert every summer since 2021. The program gives young performers a real audience and gives our community a reason to gather outdoors. Ticket sales and donations go to the Richmond Hospital Foundation, so every event also supports healthcare close to home.
           </p>
           <p className="leading-[1.9] text-ink-mid mb-0">
-            From a small idea to becoming a part of the community, Bittersweet Lemonade has always worked to bring people together through music. Every song, every smile, and every note reflects the effort of our team. We hope to keep sharing music as a way to strengthen connections and create a positive impact in our community.
+            It is still a student-run effort, with volunteers doing the less glamorous work behind every concert: planning, rehearsing, setting up, welcoming guests, and cleaning up at the end. We are proud of what a local concert can do when people show up for one another, and we are excited to keep it going.
           </p>
         </div>
       </section>
