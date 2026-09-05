@@ -9,7 +9,6 @@
   { "id": 8, "src": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052961/bittersweet-lemonade/2025/10/DSC04359.jpg", "alt": "Band Photo", "category": "band" },
   { "id": 9, "src": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052817/bittersweet-lemonade/2025/10/89E9E808-1B68-4971-BB95-EB5A650C5641.jpg", "alt": "Band Photo", "category": "band" },
   { "id": 15, "src": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052821/bittersweet-lemonade/2025/06/G.jpg", "alt": "Performance", "category": "performance" },
-  { "id": 18, "src": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052824/bittersweet-lemonade/2025/07/IMG_8586.jpg", "alt": "Performance", "category": "performance" },
   { "id": 20, "src": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052964/bittersweet-lemonade/2026/03/DSC_6347.jpg", "alt": "Live Performance", "category": "performance" },
   { "id": 21, "src": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052965/bittersweet-lemonade/2026/03/DSC_6348.jpg", "alt": "Live Performance", "category": "performance" },
   { "id": 22, "src": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052828/bittersweet-lemonade/2026/03/DSC_6349.jpg", "alt": "Live Performance", "category": "performance" },
@@ -17,7 +16,5 @@
   { "id": 24, "src": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052831/bittersweet-lemonade/2026/03/DSC_6351.jpg", "alt": "Live Performance", "category": "performance" },
   { "id": 25, "src": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052832/bittersweet-lemonade/2026/03/DSC_6352.jpg", "alt": "Live Performance", "category": "performance" },
   { "id": 26, "src": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052834/bittersweet-lemonade/2026/03/DSC_6353.jpg", "alt": "Live Performance", "category": "performance" },
-  { "id": 27, "src": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052836/bittersweet-lemonade/2026/03/DSC_6354.jpg", "alt": "Live Performance", "category": "performance" },
-  { "id": 28, "src": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052836/bittersweet-lemonade/2026/03/IMG_1554.jpg", "alt": "Band Photo", "category": "band" },
-  { "id": 29, "src": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052837/bittersweet-lemonade/2026/03/IMG_8488.jpg", "alt": "Performance", "category": "performance" }
+  { "id": 27, "src": "https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052836/bittersweet-lemonade/2026/03/DSC_6354.jpg", "alt": "Live Performance", "category": "performance" }
 ]

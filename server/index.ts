@@ -48,12 +48,19 @@ const RECENT_CONCERT_PHOTO_IDS = [
   ...'1JQ1fES0jlIqCnl8Tqw2aOBfdWTSL-Tsu 1c7QK-1w1k0lV16dxJcyx9lr3a5uR88xB 16_cMPKUo0MIV16afaq3M5plHj1Y6sUSJ 1cj2eCus32WYWuQtQWYk5lmVupC1iwFIa 1XGet-XDrXKj0nAQNIWz2mleATjD-5ave 1iIX90jQ1t6R0-t-YopTpCvaAFs8tLNil 1wTAbTyFofvOosY6HH0W71AvhEk9LTMBH 1O06VgPnAOKRoIEuFgpupli65nHf-lzQt 1U3KKHXGVX33NVHuDnYbbxvoPENx0QNBM 10Dslb8846byvzBRoco7-Y8m848NrL_ct 1uNsplQkard6WWu__WbEyheZzU1KisZe9 1chn_44Vw_NYy0IVvKwsVpltdR0wSoDQr 1tP4Q41VYJxGrm2QmgxnCJSQNNovMz9Vk 1QfYsUs2C5Mt5YYAz-fCqT_JFFkFgWX5H 1v3aDdwhj3_MFX6a5k5R2Cv_Hq8rdGabB 1TvAYOcZ_GX3UhkdqfRF5_hHl2pfJqUBd 1oByJ7aFMxBvgLNNG4LQrL7y4CG7gyNtR 1r5NflxnAlTwzdllyUjRJEPGMDPlNUWGw 1-AIhGDF3B8aVRCYkl-7PRwuP2MARYTaJ 16jW9jhhPLP_5diLqXWZid6CE8o3hNExS 1bm0iTb6a6OsWA2immkcv6zDzTWNWkZwJ 1FUZNZrVAvayLR91eHsyFQV6YCx1LsZww 1W0ZFTBASdVk3t0AAtUYHIXy2POeCmsFI 1rSd-fklYtiNX3bILFWv-TJbBN3CaqUla 1pNXT9L6XKapeDIDHNrJdTxm3j9Z1eTkv 1JDu6NTffNi45rSSpjqd2QH6uNJ-5SKMI 16ZbJodYHoEs4gdcDtkPG9O2YmPEve4S- 1Dy8thfl-k5J2o3MA8fBkqPjY_dOCH_95 1w5hj0CqgV5c4cVwc0OFNPj_XUfqo1JpF 17KkEcrbMGNfw1idO3HAjJr_YR_bzhlsY 1OCpIxVYiLitG1M94sQQ0Bm8wE8iHhGUz 1ZJFdkqTjyF1uq0EazYgBkCWMluPCVk6n 1mZFIOBmtZ-ENmpiYDYYEwe6BvB366KXB 1KFVuSCixvdJdTZgOXJHzzthr-rcE2L3m 1muVQydnUvqLRFsrtVunjMXzGk8VcPoDG 16FmmiQVMzp7yULnsj3gDqhpamR9KXjqf 1cNV2Io-t__udErpJW-Z3EQl375qgMDIw 16MvTLWVXVHs_Ul82LBp_l3jmvsSse30x 1d6xocAT-cgNcFzQqmvM05C9UasDbMaOO 15XArq9-Xg_Bcmv6WA7frqkJYYy6utS0n 1dIXzKWR_q3SDGoOM-AF2DXs-d-768d6t 1MR2-_Y-cnkWwDDBEhq63eccD6BA3uvRD 1XHKPWdl_hkjQ8hVQCwXn2_xnvvYQaCCX 1pPFE1jXxtAkCBbQ7mK2xw_-FYmk0I5ke 1G5GjKrrsLJMKiEq7_o1hhSCQV65Cm-wW 1xnroASbn47EtS2iCxOywrS5mb2HIRzUx'.split(' '),
 ];
 
-const RECENT_CONCERT_IMAGES: GalleryImage[] = RECENT_CONCERT_PHOTO_IDS.map((id, index) => ({
+const CURATED_RECENT_CONCERT_INDEXES = new Set([
+  0, 4, 6, 7, 16, 18, 20, 21, 28, 30, 31, 33, 34,
+  35, 38, 39, 40, 41, 42, 43, 58, 61, 63, 66, 67, 69,
+]);
+
+const RECENT_CONCERT_IMAGES: GalleryImage[] = RECENT_CONCERT_PHOTO_IDS
+  .filter((_id, index) => CURATED_RECENT_CONCERT_INDEXES.has(index))
+  .map((id, index) => ({
   id: 100 + index,
   src: `https://drive.google.com/thumbnail?id=${id}&sz=w1600`,
   alt: `6th Summer Lawn Concert photo ${index + 1}`,
   category: '2026-concert',
-}));
+  }));
 
 const app = express();
 const PORT = process.env.PORT ?? 3001;
