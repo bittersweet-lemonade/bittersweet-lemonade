@@ -8,7 +8,7 @@ const HERO_IMAGES = [
   'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052836/bittersweet-lemonade/2026/03/DSC_6354.jpg',
   'https://drive.google.com/thumbnail?id=1fcSWVC_R5xW2z3IJpCiJnD1pVoAYEbAL&sz=w1600',
   'https://drive.google.com/thumbnail?id=1vLtk4X07GyLlL6LcuA7jif1pwnesTIeO&sz=w1600',
-  'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052815/bittersweet-lemonade/2025/10/Bittersweet-Lemonade-Cheque-Presentation.jpg',
+  'https://drive.google.com/thumbnail?id=16jW9jhhPLP_5diLqXWZid6CE8o3hNExS&sz=w1600',
   'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052961/bittersweet-lemonade/2025/10/DSC04359.jpg',
   'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052829/bittersweet-lemonade/2026/03/DSC_6350.jpg',
   'https://drive.google.com/thumbnail?id=1G5GjKrrsLJMKiEq7_o1hhSCQV65Cm-wW&sz=w1600',
@@ -60,7 +60,7 @@ const WHAT_WE_DO: WhatWeDo[] = [
     desc: 'We give young musicians across Vancouver a stage to share their talents.',
   },
   {
-    image: 'https://res.cloudinary.com/dx8zth9lo/image/upload/v1776052836/bittersweet-lemonade/2026/03/IMG_1554.jpg',
+    image: 'https://drive.google.com/thumbnail?id=1zNNgIE1UM65Ef2ezvG46kJsssRiR7yLL&sz=w1600',
     title: 'Bringing Music to People',
     desc: 'From traditional to contemporary, our program celebrates music from around the world.',
   },
